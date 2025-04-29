@@ -1,0 +1,66 @@
+/* Add these styles to your Recommends.module.css file */
+
+.recommendsContainer {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Carousel with horizontal scroll */
+.scrollCarousel {
+  display: flex;
+  overflow-x: auto;
+  width: 100%;
+  padding: 20px 0;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  scroll-snap-type: x proximity;
+  gap: 20px;
+  cursor: grab; /* מחוון "אחיזה" שמראה שאפשר לגלול */
+  scroll-behavior: smooth;
+}
+
+/* הסתרת סקרולבר */
+.scrollCarousel::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollCarousel:active {
+  cursor: grabbing; /* משנה את הסמן כשמבצעים גרירה */
+}
+
+.imageWrapper {
+  flex-shrink: 0;
+  width: 400px;
+  height: 400px; /* שמירה על יחס 1:1 */
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.imageWrapper:hover {
+  transform: scale(1.03);
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive adjustments */
+@media only screen and (max-width: 450px) {
+  .imageWrapper {
+    width: 350px;
+    height: 350px; /* שמירה על יחס 1:1 */
+  }
+}
+
+@media only screen and (min-width: 451px) and (max-width: 1050px) {
+  .imageWrapper {
+    width: 280px;
+    height: 280px; /* שמירה על יחס 1:1 */
+  }
+}

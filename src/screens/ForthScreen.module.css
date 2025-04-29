@@ -1,0 +1,825 @@
+/* ForthScreen.module.css */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    direction: rtl;
+    padding: 0 0 2rem;
+    overflow: hidden;
+    position: relative;
+    background-color: #fafafa;
+    transition: background-color 0.8s ease;
+}
+
+.containerDark {
+    background-color: rgba(32, 18, 58, 0.97);
+    border-radius: 0 0 100px 100px;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin: 2% auto;
+    width: 100%;
+    max-width: 95%;
+}
+
+/* Title Styles */
+.title {
+    font-family: "OpenSans", sans-serif;
+    font-size: 2.5rem;
+    text-align: center;
+    margin: 1rem auto 0rem;
+    background: linear-gradient(135deg, #4b2a82, #6b3db2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 4px rgba(75, 42, 130, 0.2);
+    line-height: 1.4;
+    max-width: 92%;
+    direction: rtl;
+    position: relative;
+    letter-spacing: -1.5px;
+    padding: 0 1rem;
+    z-index: 1;
+    transition: all 0.5s ease;
+    word-wrap: break-word;
+}
+
+.titleDark {
+    background: linear-gradient(135deg, #a682ff, #d4c3ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 4px rgba(147, 97, 255, 0.3);
+}
+
+.description {
+    font-family: "OpenSansR", sans-serif;
+    font-size: 1.4rem;
+    text-align: center;
+    margin: 1rem auto 0rem;
+    background: linear-gradient(135deg, #4b2a82, #6b3db2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 4px rgba(75, 42, 130, 0.2);
+    line-height: 1.4;
+    max-width: 92%;
+    direction: rtl;
+    position: relative;
+    letter-spacing: -0.5px;
+    padding: 0 1rem;
+    z-index: 1;
+    transition: all 0.5s ease;
+    word-wrap: break-word;
+}
+
+.descriptionDark {
+    background: linear-gradient(135deg, #a682ff, #d4c3ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 4px rgba(147, 97, 255, 0.3);
+}
+
+.bold {
+    font-weight: 800;
+    display: inline-block;
+    position: relative;
+    padding: 0 0.3rem;
+    margin: 0 0.2rem;
+    background: linear-gradient(135deg, #4b2a82, #6b3db2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 4px rgba(75, 42, 130, 0.2);
+    transition: all 0.5s ease;
+}
+
+.boldDark {
+    background: linear-gradient(135deg, #a682ff, #d4c3ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 4px rgba(147, 97, 255, 0.3);
+}
+
+.bold::after {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, 
+        transparent, 
+        #6b3db2, 
+        #9361ff, 
+        #6b3db2, 
+        transparent);
+    box-shadow: 0 1px 3px rgba(147, 97, 255, 0.4);
+    transition: all 0.5s ease;
+}
+
+.boldDark::after {
+    background: linear-gradient(to right, 
+        transparent, 
+        #a682ff, 
+        #d4c3ff, 
+        #a682ff, 
+        transparent);
+    box-shadow: 0 1px 3px rgba(147, 97, 255, 0.6);
+}
+
+/* Pain Title & Action */
+.titlePain {
+    font-family: "OpenSans", sans-serif;
+    font-size: 1.8rem;
+    margin: 1.5rem auto;
+    font-weight: 700;
+    text-align: center;
+    background: linear-gradient(135deg, #6b3db2, #9361ff);
+    color: #fff;
+    padding: 1.2rem 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(107, 61, 178, 0.25);
+    position: relative;
+    z-index: 2;
+    max-width: 90%;
+    width: 90%;
+    transition: all 0.5s ease;
+    box-sizing: border-box;
+    word-wrap: break-word;
+}
+
+.titlePainDark {
+    background: linear-gradient(135deg, #8353d8, #b285ff);
+    box-shadow: 0 8px 25px rgba(147, 97, 255, 0.35);
+}
+
+/* White container with glass effect - Light mode */
+.whiteContainer {
+    background: rgba(255, 255, 255, 0.8) !important;
+    color: #6b3db2 !important;
+    -webkit-text-fill-color: #6b3db2 !important;
+    box-shadow: 0 10px 30px rgba(107, 61, 178, 0.2),
+                inset 0 0 1px rgba(255, 255, 255, 0.5);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    overflow: hidden;
+    border-radius: 12px;
+    max-width: 90%;
+    width: 90%;
+    box-sizing: border-box;
+}
+
+/* White container with glass effect - Dark mode */
+.whiteContainerDark {
+    background: rgba(255, 255, 255, 0.15) !important;
+    color: rgba(255, 255, 255, 0.95) !important;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.95) !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2),
+                inset 0 0 3px rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+/* Glass effect inner highlight for white containers */
+.whiteContainer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        125deg,
+        rgba(255, 255, 255, 0.6) 0%,
+        rgba(255, 255, 255, 0.3) 25%,
+        rgba(255, 255, 255, 0.1) 50%,
+        rgba(107, 61, 178, 0.05) 75%,
+        rgba(107, 61, 178, 0.1) 100%
+    );
+    pointer-events: none;
+    border-radius: 12px;
+    z-index: -1;
+}
+
+.whiteContainerDark::before {
+    background: linear-gradient(
+        125deg,
+        rgba(255, 255, 255, 0.25) 0%,
+        rgba(255, 255, 255, 0.15) 25%,
+        rgba(255, 255, 255, 0.05) 50%,
+        rgba(131, 83, 216, 0.05) 75%,
+        rgba(131, 83, 216, 0.1) 100%
+    );
+}
+
+/* Hover effect for white containers */
+.whiteContainer:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 35px rgba(107, 61, 178, 0.25),
+                inset 0 0 3px rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.85) !important;
+}
+
+.whiteContainerDark:hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3),
+                inset 0 0 3px rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Lucide React exclamation icons */
+.exclamationIcon {
+    color: #6b3db2;
+    stroke-width: 2.5;
+    margin: 0 0.8rem;
+    width: 24px;
+    height: 24px;
+}
+
+.whiteContainerDark .exclamationIcon {
+    color: rgba(255, 255, 255, 0.95);
+}
+
+/* Bounce animation for specific container */
+.bounceAnimation.visible {
+    animation: scaleBounce 1s ease forwards;
+}
+
+@keyframes scaleBounce {
+    0% {
+        transform: scale(0.8);
+    }
+    70% {
+        transform: scale(1.05);
+    }
+    85% {
+        transform: scale(0.98);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.titleAction {
+    font-family: "OpenSans", sans-serif;
+    font-size: 1.8rem;
+    margin: 2.5rem auto 1.5rem;
+    font-weight: 700;
+    text-align: center;
+    background: linear-gradient(135deg, #4b2a82, #9361ff);
+    color: #fff;
+    padding: 1.4rem 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(75, 42, 130, 0.3);
+    position: relative;
+    z-index: 2;
+    max-width: 90%;
+    width: 90%;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    box-sizing: border-box;
+    word-wrap: break-word;
+}
+
+.titleAction.whiteContainer {
+    background: rgba(255, 255, 255, 0.8) !important;
+    color: #6b3db2 !important;
+    -webkit-text-fill-color: #6b3db2 !important;
+    box-shadow: 0 10px 30px rgba(107, 61, 178, 0.2),
+                inset 0 0 1px rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    overflow: hidden;
+}
+
+.titleAction.whiteContainerDark {
+    background: rgba(255, 255, 255, 0.15) !important;
+    color: rgba(255, 255, 255, 0.95) !important;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.95) !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2),
+                inset 0 0 3px rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+/* Updated shine effect for glass containers */
+.titleAction::before,
+.whiteContainer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 70%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.4) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: skewX(-25deg);
+    animation: enhancedShine 4s infinite;
+    animation-delay: 1s;
+    z-index: 3;
+}
+
+.whiteContainerDark::after {
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.2) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+}
+
+@keyframes enhancedShine {
+    0% {
+        left: -150%;
+        opacity: 0.6;
+    }
+    20% {
+        opacity: 0.8;
+    }
+    40%, 100% {
+        left: 200%;
+        opacity: 0;
+    }
+}
+
+/* Animation for scroll */
+.fadeIn {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* מתחת ל-350px */
+@media (max-width: 350px) {
+    .title {
+        font-size: 1.5rem;
+        letter-spacing: -0.5px;
+        padding: 0 0.6rem;
+        margin-top: 0.6rem;
+    }
+    
+    .description {
+        font-size: 1.1rem;
+        letter-spacing: normal;
+        padding: 0 0.6rem;
+    }
+    
+    .titlePain, .titleAction {
+        font-size: 1.2rem;
+        padding: 0.6rem 0.8rem;
+        margin: 1rem auto;
+        width: 94%;
+        border-radius: 6px;
+    }
+    
+    .whiteContainer {
+        font-size: 1.2rem;
+        padding: 0.6rem 0.8rem;
+        width: 94%;
+        border-radius: 6px;
+    }
+    
+    .whiteContainer::before {
+        border-radius: 6px;
+    }
+    
+    .containerDark {
+        border-radius: 0 0 40px 40px;
+    }
+    
+    .exclamationIcon {
+        width: 16px;
+        height: 16px;
+        margin: 0 0.3rem;
+        stroke-width: 2;
+    }
+    
+    .bold {
+        padding: 0 0.2rem;
+        margin: 0 0.1rem;
+    }
+    
+    .bold::after {
+        height: 1px;
+        bottom: -2px;
+    }
+    
+    .row {
+        margin: 1% auto;
+    }
+}
+
+/* 350-450px */
+@media (min-width: 351px) and (max-width: 450px) {
+    .title {
+        font-size: 1.6rem;
+        letter-spacing: -0.7px;
+        padding: 0 0.7rem;
+    }
+    
+    .description {
+        font-size: 1.2rem;
+        margin:3% auto;
+        letter-spacing: normal;
+        padding: 0 0.7rem;
+    }
+    
+    .titlePain, .titleAction {
+        font-size: 1.3rem;
+        padding: 0.7rem 0.9rem;
+        margin: 0.8rem auto;
+        width: 94%;
+        border-radius: 7px;
+    }
+    
+    .whiteContainer {
+        font-size: 1.25rem;
+        padding: 0.7rem 0.9rem;
+        width: 95%;
+        border-radius: 7px;
+    }
+    
+    .whiteContainer::before {
+        border-radius: 7px;
+    }
+    
+    .containerDark {
+        border-radius: 0 0 50px 50px;
+    }
+    
+    .exclamationIcon {
+        width: 16px;
+        height: 16px;
+        margin: 0 0.3rem;
+    }
+    
+    .bold::after {
+        height: 1px;
+    }
+}
+
+/* 450-550px */
+@media (min-width: 451px) and (max-width: 550px) {
+    .title {
+        font-size: 1.7rem;
+        letter-spacing: -0.8px;
+        padding: 0 0.8rem;
+    }
+    
+    .description {
+        font-size: 1.25rem;
+        padding: 0 0.8rem;
+    }
+    
+    .titlePain, .titleAction {
+        font-size: 1.4rem;
+        padding: 0.8rem 1rem;
+        width: 93%;
+        border-radius: 8px;
+    }
+    
+    .whiteContainer {
+        font-size: 1.4rem;
+        padding: 0.8rem 1rem;
+        width: 93%;
+        border-radius: 8px;
+    }
+    
+    .whiteContainer::before {
+        border-radius: 8px;
+    }
+    
+    .containerDark {
+        border-radius: 0 0 60px 60px;
+    }
+    
+    .exclamationIcon {
+        width: 17px;
+        height: 17px;
+        margin: 0 0.35rem;
+    }
+}
+
+/* 550-650px */
+@media (min-width: 551px) and (max-width: 650px) {
+    .title {
+        font-size: 1.8rem;
+        letter-spacing: -1px;
+        padding: 0 0.9rem;
+    }
+    
+    .description {
+        font-size: 1.3rem;
+        padding: 0 0.9rem;
+    }
+    
+    .titlePain, .titleAction {
+        font-size: 1.5rem;
+        padding: 0.9rem 1.2rem;
+        width: 92%;
+        border-radius: 9px;
+    }
+    
+    .whiteContainer {
+        font-size: 1.5rem;
+        padding: 0.9rem 1.2rem;
+        width: 92%;
+        border-radius: 9px;
+    }
+    
+    .whiteContainer::before {
+        border-radius: 9px;
+    }
+    
+    .containerDark {
+        border-radius: 0 0 70px 70px;
+    }
+    
+    .exclamationIcon {
+        width: 18px;
+        height: 18px;
+        margin: 0 0.4rem;
+    }
+}
+
+/* 650-750px */
+@media (min-width: 651px) and (max-width: 750px) {
+    .title {
+        font-size: 1.8rem;
+        letter-spacing: -1.1px;
+    }
+    
+    .description {
+        font-size: 1.15rem;
+    }
+    
+    .titlePain, .titleAction {
+        font-size: 1.4rem;
+        padding: 1rem 1.4rem;
+        width: 92%;
+        border-radius: 10px;
+    }
+    
+    .whiteContainer {
+        font-size: 1.4rem;
+        padding: 1rem 1.4rem;
+        width: 92%;
+        border-radius: 10px;
+    }
+    
+    .whiteContainer::before {
+        border-radius: 10px;
+    }
+    
+    .containerDark {
+        border-radius: 0 0 80px 80px;
+    }
+    
+    .exclamationIcon {
+        width: 19px;
+        height: 19px;
+        margin: 0 0.45rem;
+    }
+}
+
+/* 750-850px */
+@media (min-width: 751px) and (max-width: 850px) {
+    .title {
+        font-size: 2rem;
+        letter-spacing: -1.2px;
+    }
+    
+    .description {
+        font-size: 1.2rem;
+    }
+    
+    .titlePain, .titleAction {
+        font-size: 1.5rem;
+        padding: 1.1rem 1.8rem;
+        width: 91%;
+        border-radius: 10px;
+    }
+    
+    .whiteContainer {
+        font-size: 1.5rem;
+        padding: 1.1rem 1.8rem;
+        width: 91%;
+        border-radius: 10px;
+    }
+    
+    .whiteContainer::before {
+        border-radius: 10px;
+    }
+    
+    .containerDark {
+        border-radius: 0 0 85px 85px;
+    }
+    
+    .exclamationIcon {
+        width: 20px;
+        height: 20px;
+        margin: 0 0.5rem;
+    }
+}
+
+/* 850-950px */
+@media (min-width: 851px) and (max-width: 950px) {
+    .title {
+        font-size: 2.2rem;
+        letter-spacing: -1.3px;
+    }
+    
+    .description {
+        font-size: 1.25rem;
+    }
+    
+    .titlePain, .titleAction {
+        font-size: 1.6rem;
+        padding: 1.15rem 2rem;
+        width: 90%;
+        border-radius: 11px;
+    }
+    
+    .whiteContainer {
+        font-size: 1.6rem;
+        padding: 1.15rem 2rem;
+        width: 90%;
+        border-radius: 11px;
+    }
+    
+    .whiteContainer::before {
+        border-radius: 11px;
+    }
+    
+    .containerDark {
+        border-radius: 0 0 90px 90px;
+    }
+    
+    .exclamationIcon {
+        width: 21px;
+        height: 21px;
+        margin: 0 0.6rem;
+    }
+}
+
+/* 950-1050px */
+@media (min-width: 951px) and (max-width: 1050px) {
+    .title {
+        font-size: 2.3rem;
+        letter-spacing: -1.4px;
+    }
+    
+    .description {
+        font-size: 1.3rem;
+    }
+    
+    .titlePain, .titleAction {
+        font-size: 1.7rem;
+        padding: 1.2rem 2.2rem;
+        width: 88%;
+        border-radius: 11px;
+    }
+    
+    .whiteContainer {
+        font-size: 1.7rem;
+        padding: 1.2rem 2.2rem;
+        width: 88%;
+        border-radius: 11px;
+    }
+    
+    .whiteContainer::before {
+        border-radius: 11px;
+    }
+    
+    .containerDark {
+        border-radius: 0 0 95px 95px;
+    }
+    
+    .exclamationIcon {
+        width: 22px;
+        height: 22px;
+        margin: 0 0.7rem;
+    }
+}
+
+/* 1050-1150px */
+@media (min-width: 1051px) and (max-width: 1150px) {
+    .title {
+        font-size: 2.4rem;
+        letter-spacing: -1.45px;
+    }
+    
+    .description {
+        font-size: 1.35rem;
+    }
+    
+    .titlePain, .titleAction {
+        font-size: 1.75rem;
+        padding: 1.25rem 2.4rem;
+        width: 86%;
+        max-width: 900px;
+        border-radius: 12px;
+    }
+    
+    .whiteContainer {
+        font-size: 1.75rem;
+        padding: 1.25rem 2.4rem;
+        width: 86%;
+        max-width: 900px;
+        border-radius: 12px;
+    }
+    
+    .whiteContainer::before {
+        border-radius: 12px;
+    }
+    
+    .containerDark {
+        border-radius: 0 0 100px 100px;
+    }
+    
+    .exclamationIcon {
+        width: 23px;
+        height: 23px;
+        margin: 0 0.75rem;
+    }
+}
+
+/* 1150-1250px */
+@media (min-width: 1151px) and (max-width: 1250px) {
+    .title {
+        font-size: 2.5rem;
+    }
+    
+    .description {
+        font-size: 1.4rem;
+    }
+    
+    .titlePain, .titleAction {
+        font-size: 1.8rem;
+        padding: 1.3rem 2.5rem;
+        width: 85%;
+        max-width: 900px;
+        border-radius: 12px;
+    }
+    
+    .whiteContainer {
+        font-size: 1.8rem;
+        padding: 1.3rem 2.5rem;
+        width: 85%;
+        max-width: 900px;
+        border-radius: 12px;
+    }
+    
+    .whiteContainer::before {
+        border-radius: 12px;
+    }
+}
+
+/* מעל 1250px (ברירת מחדל) */
+@media (min-width: 1251px) {
+    .title {
+        font-size: 2.5rem;
+        max-width: 900px;
+    }
+    
+    .description {
+        font-size: 1.4rem;
+        max-width: 900px;
+    }
+    
+    .titlePain, .titleAction {
+        font-size: 1.8rem;
+        padding: 1.2rem 2.5rem;
+        width: 90%;
+        max-width: 860px;
+        border-radius: 12px;
+    }
+    
+    .whiteContainer {
+        width: 90%;
+        max-width: 860px;
+        border-radius: 12px;
+    }
+    
+    .whiteContainer::before {
+        border-radius: 12px;
+    }
+}

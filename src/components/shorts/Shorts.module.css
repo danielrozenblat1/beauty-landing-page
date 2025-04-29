@@ -1,0 +1,155 @@
+/* YouTubeShortsCarousel.module.css */
+.carouselOuterContainer {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+  overflow-x: hidden; /* Added to prevent horizontal overflow */
+}
+
+.carouselContainer {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 2rem 0;
+  background-color: rgba(63, 24, 119, 0.03);
+  box-shadow: 0 0 20px rgba(63, 24, 119, 0.05);
+  border-radius: 10px;
+}
+
+.carouselTrack {
+  display: flex;
+  gap: 1.8rem;
+  width: 100%;
+  animation: autoScroll 30s linear infinite;
+}
+
+/* אנימציה שתעצור כאשר הקרוסלה במצב מושהה */
+.carouselTrack.paused {
+  animation-play-state: paused;
+}
+
+.shortsItem {
+  flex: 0 0 280px; /* הרחבת השורטים + עיגון קבוע */
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.shortsWrapper {
+  height: 490px; /* עדכון גובה יחסי */
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(63, 24, 119, 0.15);
+  /* צל פנימי סגול עדין */
+  box-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.1),
+    inset 0 0 8px rgba(63, 24, 119, 0.2);
+}
+
+.shortsWrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 8px;
+  box-shadow: inset 0 0 20px rgba(63, 24, 119, 0.15);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.shortsWrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.shortsItem:hover {
+  transform: translateY(-5px);
+}
+
+.shortsItem:hover .shortsWrapper {
+  box-shadow: 
+    0 8px 25px rgba(63, 24, 119, 0.15),
+    inset 0 0 12px rgba(63, 24, 119, 0.3);
+}
+
+/* Gradient overlay for fade effect on edges */
+.carouselContainer::before,
+.carouselContainer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 8%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.carouselContainer::before {
+  left: 0;
+  background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+}
+
+.carouselContainer::after {
+  right: 0;
+  background: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+}
+
+/* Animation for infinite scrolling - slower speed */
+@keyframes autoScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-296.8px * var(--shorts-count))); /* רוחב אייטם + מרווח */
+  }
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .shortsItem {
+    flex: 0 0 230px;
+  }
+  
+  .shortsWrapper {
+    height: 400px;
+  }
+  
+  @keyframes autoScroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-246.8px * var(--shorts-count))); /* רוחב אייטם + מרווח */
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .shortsItem {
+    flex: 0 0 180px;
+  }
+  
+  .shortsWrapper {
+    height: 320px;
+  }
+  
+  .carouselContainer {
+    padding: 1.5rem 0;
+  }
+  
+  @keyframes autoScroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-196.8px * var(--shorts-count))); /* רוחב אייטם + מרווח */
+    }
+  }
+}

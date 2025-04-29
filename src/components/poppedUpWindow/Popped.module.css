@@ -1,0 +1,332 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.popped {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 2.5rem 3rem 2.5rem 2.5rem;
+  border-radius: 1.5rem;
+  max-width: 480px;
+  width: 90%;
+  box-shadow: 
+    0 10px 30px rgba(75, 42, 130, 0.18),
+    inset 0 0 25px rgba(147, 97, 255, 0.08),
+    inset 0 0 5px rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(147, 97, 255, 0.15);
+  position: relative;
+  overflow: hidden;
+  animation: formAppear 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* אלמנטים דקורטיביים */
+.popped::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  bottom: 20px;
+  right: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, transparent, rgba(147, 97, 255, 0.4), transparent);
+  border-radius: 3px;
+}
+
+/* עיצוב X - כפתור סגירה */
+.x {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #6b3db2;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.x:hover {
+  background-color: rgba(107, 61, 178, 0.1);
+  transform: rotate(90deg);
+}
+
+/* אפקטים דקורטיביים */
+.topLeft {
+  position: absolute;
+  top: -40px;
+  left: -40px;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle at center, rgba(147, 97, 255, 0.8), transparent 70%);
+  border-radius: 50%;
+  filter: blur(25px);
+  z-index: 0;
+  opacity: 0.6;
+  animation: glowPulse 6s infinite alternate;
+}
+
+.bottomRight {
+  position: absolute;
+  bottom: -40px;
+  right: -40px;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle at center, rgba(107, 61, 178, 0.8), transparent 70%);
+  border-radius: 50%;
+  filter: blur(25px);
+  z-index: 0;
+  opacity: 0.6;
+  animation: glowPulse 6s infinite alternate;
+}
+
+/* שדות הקלט */
+.input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid rgba(147, 97, 255, 0.3);
+  direction: rtl;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+  color: #4b2a82;
+  font-family: "OpenSansR", sans-serif;
+  outline: none;
+  transition: all 0.25s ease-in-out;
+  text-align: right;
+  box-shadow: 0 0 4px rgba(147, 97, 255, 0.05), inset 0 1px 2px rgba(0, 0, 0, 0.02);
+  box-sizing: border-box;
+  margin: 0 0 1.5rem;
+}
+
+.input::placeholder {
+  color: rgba(107, 61, 178, 0.5);
+  transition: color 0.25s ease;
+  text-align: right;
+  font-family: "OpenSansR", sans-serif;
+}
+
+.input:focus {
+  border-color: #9361ff;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 0 10px rgba(147, 97, 255, 0.25), inset 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+/* כפתור שליחה */
+.button {
+  font-family: 'OpenSans', sans-serif;
+  font-size: 1.1rem;
+  width: 100%;
+  color: #ffffff;
+  background: linear-gradient(to bottom, #7d4dd0, #6b3db2);
+  padding: 15px 30px;
+  border: none;
+  border-radius: 12px;
+  direction: rtl;
+  margin-top: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 
+    0 3px 10px rgba(75, 42, 130, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  position: relative;
+  overflow: hidden;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(to bottom, #8a5de0, #7849c4);
+  box-shadow: 
+    0 4px 12px rgba(75, 42, 130, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.button:active {
+  transform: translateY(0);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+/* אפקט ברק עדין לכפתור */
+.button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, 
+      rgba(255, 255, 255, 0) 20%, 
+      rgba(255, 255, 255, 0.2) 50%, 
+      rgba(255, 255, 255, 0) 80%);
+  transform: translateX(-100%) skewX(-15deg);
+  transition: all 0.8s ease;
+}
+
+.button:hover::before {
+  transform: translateX(100%) skewX(-15deg);
+}
+
+/* כותרות */
+.title {
+  font-family: "OpenSans", sans-serif;
+  font-size: 2.5rem;
+  text-align: center;
+  margin: 1rem auto 2rem;
+  background: linear-gradient(135deg, #4b2a82, #6b3db2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 4px rgba(75, 42, 130, 0.2);
+  line-height: 1.4;
+  position: relative;
+  letter-spacing: -1.5px;
+  direction: rtl;
+  animation: titleGlow 4s infinite alternate;
+}
+
+.subTitle {
+  font-family: "OpenSansR", sans-serif;
+  font-size: 1.3rem;
+  text-align: center;
+  margin: 0 0 2rem;
+  color: #7749c9;
+  width: 100%;
+  direction: rtl;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+/* אנימציות */
+@keyframes formAppear {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -45%) scale(0.98);
+    filter: blur(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes glowPulse {
+  0% {
+    opacity: 0.3;
+    filter: blur(15px);
+  }
+  50% {
+    opacity: 0.7;
+    filter: blur(20px);
+  }
+  100% {
+    opacity: 0.3;
+    filter: blur(15px);
+  }
+}
+
+@keyframes titleGlow {
+  0% {
+    text-shadow: 0 2px 4px rgba(75, 42, 130, 0.2);
+  }
+  50% {
+    text-shadow: 0 2px 8px rgba(75, 42, 130, 0.4);
+  }
+  100% {
+    text-shadow: 0 2px 4px rgba(75, 42, 130, 0.2);
+  }
+}
+
+/* רספונסיביות */
+@media screen and (max-width: 349px) {
+  .popped {
+    width: 90%;
+    max-width: none;
+    padding: 1.5rem 1rem;
+    border-radius: 1rem;
+  }
+  
+  .title {
+    font-size: 1.5rem;
+    letter-spacing: -0.5px;
+    margin: 0.7rem auto 1.5rem;
+  }
+  
+  .subTitle {
+    font-size: 1rem;
+    margin: 0 0 1.5rem;
+  }
+  
+  .input {
+    padding: 12px 14px;
+    font-size: 0.9rem;
+  }
+  
+  .button {
+    font-size: 0.95rem;
+    padding: 12px 20px;
+  }
+  
+  .topLeft, .bottomRight {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .topLeft {
+    top: -30px;
+    left: -30px;
+  }
+  
+  .bottomRight {
+    bottom: -30px;
+    right: -30px;
+  }
+}
+
+@media screen and (min-width: 350px) and (max-width: 450px) {
+  .popped {
+    width: 90%;
+    padding: 1.8rem 1.2rem;
+    border-radius: 1.2rem;
+  }
+  
+  .title {
+    font-size: 1.7rem;
+    letter-spacing: -0.8px;
+  }
+  
+  .subTitle {
+    font-size: 1.1rem;
+  }
+  
+  .input {
+    padding: 12px 14px;
+    font-size: 0.95rem;
+  }
+  
+  .button {
+    font-size: 1rem;
+    padding: 13px 22px;
+  }
+}
