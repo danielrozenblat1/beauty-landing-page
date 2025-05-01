@@ -4,7 +4,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7); /* הגברת האטימות של השכבה העליונה */
   z-index: 999;
 }
 
@@ -13,16 +13,16 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.97); /* הגברת האטימות של הטופס עצמו */
   padding: 2.5rem 3rem 2.5rem 2.5rem;
   border-radius: 1.5rem;
-  max-width: 480px;
-  width: 90%;
+  max-width: 420px; /* הקטנת הרוחב המקסימלי מ-480px ל-420px */
+  width: 85%; /* הקטנת האחוז מ-90% ל-85% */
   box-shadow: 
-    0 10px 30px rgba(75, 42, 130, 0.18),
-    inset 0 0 25px rgba(147, 97, 255, 0.08),
-    inset 0 0 5px rgba(255, 255, 255, 0.7);
-  border: 1px solid rgba(147, 97, 255, 0.15);
+    0 10px 30px rgba(75, 42, 130, 0.25), /* חיזוק הצללים */
+    inset 0 0 25px rgba(147, 97, 255, 0.12),
+    inset 0 0 5px rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(147, 97, 255, 0.25); /* הגברת הנראות של הגבול */
   position: relative;
   overflow: hidden;
   animation: formAppear 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
@@ -36,7 +36,7 @@
   bottom: 20px;
   right: 0;
   width: 2px;
-  background: linear-gradient(to bottom, transparent, rgba(147, 97, 255, 0.4), transparent);
+  background: linear-gradient(to bottom, transparent, rgba(147, 97, 255, 0.6), transparent); /* חיזוק הקו הדקורטיבי */
   border-radius: 3px;
 }
 
@@ -59,7 +59,7 @@
 }
 
 .x:hover {
-  background-color: rgba(107, 61, 178, 0.1);
+  background-color: rgba(107, 61, 178, 0.15);
   transform: rotate(90deg);
 }
 
@@ -70,11 +70,11 @@
   left: -40px;
   width: 120px;
   height: 120px;
-  background: radial-gradient(circle at center, rgba(147, 97, 255, 0.8), transparent 70%);
+  background: radial-gradient(circle at center, rgba(147, 97, 255, 0.5), transparent 70%); /* הפחתת השקיפות של האפקטים */
   border-radius: 50%;
   filter: blur(25px);
   z-index: 0;
-  opacity: 0.6;
+  opacity: 0.4; /* הפחתת האופסיטי של האפקט */
   animation: glowPulse 6s infinite alternate;
 }
 
@@ -84,11 +84,11 @@
   right: -40px;
   width: 120px;
   height: 120px;
-  background: radial-gradient(circle at center, rgba(107, 61, 178, 0.8), transparent 70%);
+  background: radial-gradient(circle at center, rgba(107, 61, 178, 0.5), transparent 70%); /* הפחתת השקיפות של האפקטים */
   border-radius: 50%;
   filter: blur(25px);
   z-index: 0;
-  opacity: 0.6;
+  opacity: 0.4; /* הפחתת האופסיטי של האפקט */
   animation: glowPulse 6s infinite alternate;
 }
 
@@ -96,23 +96,23 @@
 .input {
   width: 100%;
   padding: 14px 16px;
-  border: 1px solid rgba(147, 97, 255, 0.3);
+  border: 1px solid rgba(147, 97, 255, 0.4); /* חיזוק הגבול */
   direction: rtl;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.95); /* הגברת האטימות של רקע שדות הקלט */
   font-size: 1rem;
   color: #4b2a82;
   font-family: "OpenSansR", sans-serif;
   outline: none;
   transition: all 0.25s ease-in-out;
   text-align: right;
-  box-shadow: 0 0 4px rgba(147, 97, 255, 0.05), inset 0 1px 2px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 0 4px rgba(147, 97, 255, 0.1), inset 0 1px 2px rgba(0, 0, 0, 0.03);
   box-sizing: border-box;
   margin: 0 0 1.5rem;
 }
 
 .input::placeholder {
-  color: rgba(107, 61, 178, 0.5);
+  color: rgba(107, 61, 178, 0.65); /* חיזוק צבע הפלייסהולדר */
   transition: color 0.25s ease;
   text-align: right;
   font-family: "OpenSansR", sans-serif;
@@ -120,8 +120,8 @@
 
 .input:focus {
   border-color: #9361ff;
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 0 10px rgba(147, 97, 255, 0.25), inset 0 1px 3px rgba(0, 0, 0, 0.02);
+  background: rgba(255, 255, 255, 1); /* רקע אטום לחלוטין במצב פוקוס */
+  box-shadow: 0 0 10px rgba(147, 97, 255, 0.3), inset 0 1px 3px rgba(0, 0, 0, 0.03);
 }
 
 /* כפתור שליחה */
@@ -139,13 +139,13 @@
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 
-    0 3px 10px rgba(75, 42, 130, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    0 3px 10px rgba(75, 42, 130, 0.25), /* חיזוק הצל */
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
   position: relative;
   overflow: hidden;
   font-weight: 600;
   letter-spacing: 0.5px;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
   box-sizing: border-box;
 }
 
@@ -153,13 +153,13 @@
   transform: translateY(-2px);
   background: linear-gradient(to bottom, #8a5de0, #7849c4);
   box-shadow: 
-    0 4px 12px rgba(75, 42, 130, 0.25),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    0 4px 12px rgba(75, 42, 130, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
 }
 
 .button:active {
   transform: translateY(0);
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 /* אפקט ברק עדין לכפתור */
@@ -172,7 +172,7 @@
   height: 100%;
   background: linear-gradient(120deg, 
       rgba(255, 255, 255, 0) 20%, 
-      rgba(255, 255, 255, 0.2) 50%, 
+      rgba(255, 255, 255, 0.25) 50%, 
       rgba(255, 255, 255, 0) 80%);
   transform: translateX(-100%) skewX(-15deg);
   transition: all 0.8s ease;
@@ -191,7 +191,7 @@
   background: linear-gradient(135deg, #4b2a82, #6b3db2);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 2px 4px rgba(75, 42, 130, 0.2);
+  text-shadow: 0 2px 4px rgba(75, 42, 130, 0.25); /* חיזוק הצל של הטקסט */
   line-height: 1.4;
   position: relative;
   letter-spacing: -1.5px;
@@ -203,8 +203,8 @@
   font-family: "OpenSansR", sans-serif;
   font-size: 1.3rem;
   text-align: center;
-  margin: 0 0 2rem;
-  color: #7749c9;
+  margin: 1.5rem auto;
+  color: #6b3db2; /* חיזוק צבע הכותרת המשנית */
   width: 100%;
   direction: rtl;
 }
@@ -233,35 +233,35 @@
 
 @keyframes glowPulse {
   0% {
-    opacity: 0.3;
+    opacity: 0.25;
     filter: blur(15px);
   }
   50% {
-    opacity: 0.7;
+    opacity: 0.4;
     filter: blur(20px);
   }
   100% {
-    opacity: 0.3;
+    opacity: 0.25;
     filter: blur(15px);
   }
 }
 
 @keyframes titleGlow {
   0% {
-    text-shadow: 0 2px 4px rgba(75, 42, 130, 0.2);
+    text-shadow: 0 2px 4px rgba(75, 42, 130, 0.25);
   }
   50% {
-    text-shadow: 0 2px 8px rgba(75, 42, 130, 0.4);
+    text-shadow: 0 2px 8px rgba(75, 42, 130, 0.5);
   }
   100% {
-    text-shadow: 0 2px 4px rgba(75, 42, 130, 0.2);
+    text-shadow: 0 2px 4px rgba(75, 42, 130, 0.25);
   }
 }
 
 /* רספונסיביות */
 @media screen and (max-width: 349px) {
   .popped {
-    width: 90%;
+    width: 85%; /* הקטנת האחוז מ-90% ל-85% */
     max-width: none;
     padding: 1.5rem 1rem;
     border-radius: 1rem;
@@ -306,7 +306,7 @@
 
 @media screen and (min-width: 350px) and (max-width: 450px) {
   .popped {
-    width: 90%;
+    width: 85%; /* הקטנת האחוז מ-90% ל-85% */
     padding: 1.8rem 1.2rem;
     border-radius: 1.2rem;
   }

@@ -39,12 +39,14 @@ const NavBarNew = () => {
     }
   };
 
-  const handleWhatsAppClick = () => {
-    const phoneNumber = "+972505991927";
-    const message = "היי אדל ,אני רוצה לשמוע ממך עוד על..";
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-    window.open(whatsappURL, "_blank");
+  const scrollToForm = () => {
+    // Find the element with id "טופס" and scroll to it
+    const formElement = document.getElementById("טופס");
+    if (formElement) {
+      const yOffset = -150; // 150px offset above the element
+      const y = formElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
   };
 
   return (
@@ -57,9 +59,9 @@ const NavBarNew = () => {
           <img src={logo} alt="Logo" />
         </div>
         
-        <button className={styles.menuButton} onClick={handleWhatsAppClick}>
+        <button className={styles.menuButton} onClick={scrollToForm}>
           <div className={styles.buttonContent}>
-            <span className={styles.buttonText}>אדל, בואי נדבר!</span>
+            <span className={styles.buttonText}>דניאל, בוא נדבר!</span>
             <span className={styles.buttonTextHover}>תלחצי כאן</span>
           </div>
         </button>
@@ -72,7 +74,7 @@ const NavBarNew = () => {
               <FaTimes />
             </div>
             <div className={styles.mobileMenuLogo}>
-              <img src={logo} alt="אדל מושייב לוגו"/>
+              <img src={logo} alt="דניאל רוזנבלט לוגו"/>
             </div>
           </div>
           <div className={styles.mobileMenuContent}>

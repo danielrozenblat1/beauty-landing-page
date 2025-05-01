@@ -1,0 +1,320 @@
+/* WhoDoesList.module.css - אייקון וטקסט בתוך הקובייה */
+
+.needsContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 0;
+    direction: rtl;
+    position: relative;
+}
+
+.needsContainerDark {
+    background: rgba(17, 8, 30, 0.8);
+}
+
+.needsTitle {
+    font-family: "OpenSans", sans-serif;
+    font-size: 2.2rem;
+    text-align: center;
+    margin: 2rem auto 1.5rem;
+    background: linear-gradient(135deg, #9162e4, #a782ec);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 4px rgba(75, 42, 130, 0.2);
+    line-height: 1.4;
+    max-width: 92%;
+    position: relative;
+    letter-spacing: -1.5px;
+    padding: 0 1rem;
+    z-index: 1;
+    transition: all 0.5s ease;
+    word-wrap: break-word;
+}
+
+.needsTitleDark {
+    background: linear-gradient(135deg, #a782ec, #d4c3ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 10px rgba(167, 130, 236, 0.4), 
+                 0 0 15px rgba(167, 130, 236, 0.2);
+}
+
+.needsList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    width: 90%;
+    max-width: 1200px;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.needsListDark {
+    /* Dark mode styling for the list */
+}
+
+/* Wrapper for card */
+.needsItemWrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.needsItemWrapper.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Card item */
+.needsItem {
+    position: relative;
+    width: 330px;
+    height: 190px; /* קצת יותר גובה כדי להכיל את האייקון והטקסט */
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(107, 61, 178, 0.15),
+                inset 0 0 8px rgba(255, 255, 255, 0.4),
+                inset 0 0 2px rgba(167, 130, 236, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    color: #ffffff;
+    -webkit-text-fill-color: #ffffff;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden; /* למקרה שמשהו יוצא מהקובייה */
+}
+
+.needsItemDark {
+    background: rgba(255, 255, 255, 0.04);
+    color: rgba(255, 255, 255, 0.95);
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2),
+                inset 0 0 6px rgba(167, 130, 236, 0.3),
+                inset 0 0 15px rgba(0, 0, 0, 0.4),
+                0 0 5px rgba(167, 130, 236, 0.2);
+    border: 1px solid rgba(167, 130, 236, 0.1);
+}
+
+/* Icon wrapper בתוך הקובייה */
+.iconWrapper {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+/* Content container */
+.itemContent {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    padding: 0 1.5rem 1.5rem;
+    box-sizing: border-box;
+    flex: 1;
+}
+
+/* Text styling */
+.itemText {
+    font-family: "OpenSansR", sans-serif;
+    font-size: 1.1rem;
+    text-align: center;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.needsItemDark .itemText {
+    text-shadow: 0 0 10px rgba(167, 130, 236, 0.1);
+}
+
+/* Glass effect highlights */
+.needsItem::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    background: linear-gradient(
+        125deg,
+        rgba(255, 255, 255, 0.15) 0%,
+        rgba(255, 255, 255, 0.08) 25%,
+        rgba(255, 255, 255, 0.03) 50%,
+        transparent 75%
+    );
+    pointer-events: none;
+    z-index: 0;
+    border-radius: 12px 12px 0 0;
+}
+
+.needsItemDark::before {
+    background: linear-gradient(
+        125deg,
+        rgba(255, 255, 255, 0.07) 0%,
+        rgba(255, 255, 255, 0.04) 25%,
+        rgba(167, 130, 236, 0.02) 50%,
+        transparent 75%
+    );
+}
+
+/* Hover effects */
+.needsItem:hover {
+    box-shadow: 0 10px 30px rgba(107, 61, 178, 0.2),
+                inset 0 0 10px rgba(255, 255, 255, 0.5),
+                inset 0 0 3px rgba(167, 130, 236, 0.6);
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+}
+
+.needsItemDark:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25),
+                inset 0 0 8px rgba(167, 130, 236, 0.3),
+                inset 0 0 15px rgba(0, 0, 0, 0.4),
+                0 0 8px rgba(167, 130, 236, 0.2);
+    background: rgba(167, 130, 236, 0.06);
+    border: 1px solid rgba(167, 130, 236, 0.2);
+    transform: translateY(-3px);
+}
+
+/* Responsive Design */
+@media (max-width: 350px) {
+    .needsTitle {
+        font-size: 1.5rem;
+        letter-spacing: -0.5px;
+        padding: 0 0.6rem;
+        margin-top: 0.6rem;
+    }
+    
+    .needsItem {
+        width: 270px;
+        height: 210px;
+        border-radius: 8px;
+    }
+    
+    .iconWrapper {
+        width: 55px;
+        height: 55px;
+        margin-top: 15px;
+        margin-bottom: 10px;
+    }
+    
+    .itemText {
+        font-size: 0.9rem;
+    }
+    
+    .itemContent {
+        padding: 0 1rem 1rem;
+    }
+    
+    .needsList {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+/* 350-450px */
+@media (min-width: 351px) and (max-width: 450px) {
+    .needsTitle {
+        font-size: 1.6rem;
+        letter-spacing: -0.7px;
+        padding: 0 0.7rem;
+    }
+    
+    .needsItem {
+        width: 280px;
+        height: 210px;
+    }
+    
+    .iconWrapper {
+        width: 55px;
+        height: 55px;
+        margin-top: 15px;
+        margin-bottom: 10px;
+    }
+    
+    .itemText {
+        font-size: 1rem;
+    }
+    
+    .itemContent {
+        padding: 0 1.2rem 1.2rem;
+    }
+    
+    .needsList {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 450-650px */
+@media (min-width: 451px) and (max-width: 650px) {
+    .needsTitle {
+        font-size: 1.8rem;
+        letter-spacing: -0.8px;
+        padding: 0 0.8rem;
+    }
+    
+    .needsItem {
+        width: 290px;
+        height: 210px;
+    }
+    
+    .iconWrapper {
+        width: 60px;
+        height: 60px;
+        margin-top: 18px;
+        margin-bottom: 12px;
+    }
+    
+    .itemText {
+        font-size: 1.05rem;
+    }
+    
+    .itemContent {
+        padding: 0 1.3rem 1.3rem;
+    }
+    
+    .needsList {
+        grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    }
+}
+
+/* 650-950px */
+@media (min-width: 651px) and (max-width: 950px) {
+    .needsTitle {
+        font-size: 2rem;
+        letter-spacing: -1.1px;
+    }
+    
+    .needsItem {
+        width: 300px;
+        height: 210px;
+    }
+    
+    .iconWrapper {
+        width: 65px;
+        height: 65px;
+        margin-top: 18px;
+        margin-bottom: 12px;
+    }
+    
+    .itemText {
+        font-size: 1.15rem;
+    }
+    
+    .itemContent {
+        padding: 0 1.4rem 1.4rem;
+    }
+}
+

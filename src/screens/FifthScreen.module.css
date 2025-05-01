@@ -1,8 +1,8 @@
 .ctaButton {
     position: relative;
-    padding: 16px 32px;
+    padding: 8px 16px;
     font-family: "OpenSansR", sans-serif;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 600;
     color: #ffffff;
     background: linear-gradient(135deg, rgba(75, 42, 130), rgba(107, 61, 178));

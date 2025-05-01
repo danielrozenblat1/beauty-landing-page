@@ -8,7 +8,7 @@
   border-radius: 10px;
   position: relative;
   z-index: 1;
-  box-sizing: border-box; /* הוספתי כדי למנוע גלישה */
+  box-sizing: border-box;
 }
 
 .row {
@@ -17,9 +17,9 @@
   margin: 2% auto;
   flex-wrap: wrap;
   direction: rtl;
-  width: 100%; /* הוספתי כדי להבטיח רוחב מלא */
-  box-sizing: border-box; /* הוספתי כדי למנוע גלישה */
-  text-align: center; /* הוספתי יישור מרכז לטקסט */
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
 }
 
 .header {
@@ -33,16 +33,16 @@
   background: linear-gradient(135deg, #4b2a82, #6b3db2);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  width: 100%; /* הוספתי כדי להבטיח רוחב מלא */
-  box-sizing: border-box; /* הוספתי כדי למנוע גלישה */
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .imageContainer {
   flex: 1;
-  padding-left: 20px;
+  padding-left: 40px; /* הגדלתי את המרחק מ-20px ל-40px */
   position: relative;
-  box-sizing: border-box; /* הוספתי כדי למנוע גלישה */
-  text-align: center; /* הוספתי יישור מרכז לטקסט */
+  box-sizing: border-box;
+  text-align: center;
 }
 
 .image {
@@ -55,8 +55,8 @@
   transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   z-index: 2;
-  box-sizing: border-box; /* הוספתי כדי למנוע גלישה */
-  margin: 0 auto; /* הוספתי מרכוז */
+  box-sizing: border-box;
+  margin: 0 auto;
 }
 
 .imageContainer:hover .image {
@@ -71,8 +71,8 @@
   display: flex;
   justify-content: center;
   transition: width 0.3s ease;
-  box-sizing: border-box; /* הוספתי כדי למנוע גלישה */
-  text-align: center; /* הוספתי יישור מרכז לטקסט */
+  box-sizing: border-box;
+  text-align: center;
 }
 
 .bottomImage {
@@ -82,44 +82,44 @@
   border-radius: 20px;
   filter: drop-shadow(2px 4px 8px rgb(178, 178, 178));
   transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-  box-sizing: border-box; /* הוספתי כדי למנוע גלישה */
+  box-sizing: border-box;
 }
 
 .content {
   flex: 2;
-  text-align: center; /* שיניתי מימין למרכז */
+  text-align: right; /* בתצוגה רגילה הכל מיושר לימין */
   direction: rtl;
-  box-sizing: border-box; /* הוספתי כדי למנוע גלישה */
-  padding-right: 0; /* הוספתי כדי למנוע ריפוד מיותר */
-  width: 100%; /* הוספתי כדי להבטיח רוחב מתאים */
+  box-sizing: border-box;
+  padding-right: 20px; /* הוספתי ריפוד מימין להגדיל את המרחק בין הטקסט לתמונה */
+  width: 100%;
 }
 
 .title {
   font-size: 2.5rem;
   font-family: "OpenSans", sans-serif;
-  text-align: center; /* שיניתי מימין למרכז */
   direction: rtl;
-  width: 100%; /* שיניתי ל-100% במקום 90% */
+  width: 100%;
   font-weight: 800;
+  text-align: right;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.12);
   margin-bottom: 15px;
   background: linear-gradient(135deg, #4b2a82, #6b3db2);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  box-sizing: border-box; /* הוספתי כדי למנוע גלישה */
+  box-sizing: border-box;
 }
 
 .subtitle {
   font-size: 1.35rem;
   font-family: "OpenSans", sans-serif;
-  text-align: center; /* שיניתי מימין למרכז */
+  text-align: right;
   margin: 3% auto;
   direction: rtl;
   font-weight: 800;
   line-height: 1.4;
   color: #4b2a82;
-  width: 100%; /* הוספתי כדי להבטיח רוחב מלא */
-  box-sizing: border-box; /* הוספתי כדי למנוע גלישה */
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .description {
@@ -129,10 +129,10 @@
   font-family: "OpenSansR", sans-serif;
   margin-bottom: 15px;
   color: #333;
-  text-align: center; /* שיניתי מימין למרכז */
+  text-align: right; /* בתצוגה רגילה הכל מיושר לימין */
   direction: rtl;
-  width: 100%; /* הוספתי כדי להבטיח רוחב מלא */
-  box-sizing: border-box; /* הוספתי כדי למנוע גלישה */
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Bold Style with reduced emphasis */
@@ -150,11 +150,11 @@
   width: 100%;
   max-width: 1000px;
   margin: 1rem auto 1.5rem;
-  text-align: center;
+  text-align: right; /* בתצוגה רגילה הכל מיושר לימין */
   direction: rtl;
   position: relative;
-  box-sizing: border-box; /* הוספתי כדי למנוע גלישה */
-  padding: 0 15px; /* הוספתי ריפוד צידי */
+  box-sizing: border-box;
+  padding: 0 15px;
 }
 
 .sectionTitle {
@@ -164,9 +164,9 @@
   margin: 0 0 1.5rem;
   font-weight: 600;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 100%; /* הוספתי כדי להבטיח רוחב מלא */
-  box-sizing: border-box; /* הוספתי כדי למנוע גלישה */
-  text-align: center; /* וידאתי שהכותרת ממורכזת */
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center; /* בתצוגה רגילה הכל מיושר לימין */
 }
 
 /* Glass Container Effect */
@@ -183,9 +183,9 @@
   position: relative;
   overflow: hidden;
   direction: rtl;
-  width: 100%; /* הוספתי כדי להבטיח רוחב מלא */
-  box-sizing: border-box; /* הוספתי כדי למנוע גלישה */
-  text-align: center; /* הוספתי יישור מרכז לטקסט */
+  width: 100%;
+  box-sizing: border-box;
+  text-align: right; /* בתצוגה רגילה הכל מיושר לימין */
 }
 
 /* Glass Container Glowy Effect */
@@ -233,8 +233,9 @@
   transition: all 0.3s ease;
   overflow: hidden;
   z-index: 2;
-  max-width: 90%; /* הגבלת רוחב לכפתור */
-  box-sizing: border-box; /* הוספתי כדי למנוע גלישה */
+  max-width: 90%;
+  box-sizing: border-box;
+  text-align: center; /* וידוא שטקסט הכפתור ממורכז */
 }
 
 .ctaButton:hover {
@@ -420,24 +421,25 @@
   }
   
   .content {
-    text-align: center;
+    text-align: center; /* בתצוגות מדיה - הכל מיושר למרכז */
     padding: 0 15px;
   }
   
   .title, .subtitle {
-    text-align: center;
+    text-align: center; /* בתצוגות מדיה - הכל מיושר למרכז */
     margin: 2% auto;
     width: 100%;
     word-wrap: break-word;
   }
   
   .description {
-    text-align: center;
+    text-align: center; /* בתצוגות מדיה - הכל מיושר למרכז */
     font-size: 1.15rem;
   }
   
   .header {
     font-size: 2.6rem;
+    text-align: center; /* בתצוגות מדיה - הכל מיושר למרכז */
   }
   
   .title {
@@ -454,6 +456,11 @@
   
   .glassContainer {
     padding: 1.5rem;
+    text-align: center; /* בתצוגות מדיה - הכל מיושר למרכז */
+  }
+  
+  .sectionContainer, .sectionTitle {
+    text-align: center; /* בתצוגות מדיה - הכל מיושר למרכז */
   }
 }
 
@@ -478,24 +485,25 @@
   }
   
   .content {
-    text-align: center;
+    text-align: center; /* בתצוגות מדיה - הכל מיושר למרכז */
     padding: 0 15px;
   }
   
   .title, .subtitle {
-    text-align: center;
+    text-align: center; /* בתצוגות מדיה - הכל מיושר למרכז */
     margin: 2% auto;
     width: 100%;
     word-wrap: break-word;
   }
   
   .description {
-    text-align: center;
+    text-align: center; /* בתצוגות מדיה - הכל מיושר למרכז */
     font-size: 1.15rem;
   }
   
   .header {
     font-size: 2.5rem;
+    text-align: center; /* בתצוגות מדיה - הכל מיושר למרכז */
   }
   
   .title {
@@ -508,6 +516,7 @@
   
   .sectionTitle {
     font-size: 1.6rem;
+    text-align: center; /* בתצוגות מדיה - הכל מיושר למרכז */
   }
   
   .bottomImageContainer {
@@ -516,6 +525,11 @@
   
   .glassContainer {
     padding: 1.5rem 1.2rem;
+    text-align: center; /* בתצוגות מדיה - הכל מיושר למרכז */
+  }
+  
+  .sectionContainer {
+    text-align: center; /* בתצוגות מדיה - הכל מיושר למרכז */
   }
 }
 
@@ -530,22 +544,27 @@
   .header {
     font-size: 2.3rem;
     padding: 0 10px;
+    text-align: center; /* בתצוגות מדיה - הכל מיושר למרכז */
   }
   
   .title {
     font-size: 1.9rem;
+    text-align: center; /* בתצוגות מדיה - הכל מיושר למרכז */
   }
   
   .subtitle {
     font-size: 1.2rem;
+    text-align: center; /* בתצוגות מדיה - הכל מיושר למרכז */
   }
   
   .description {
     font-size: 1.1rem;
+    text-align: center; /* בתצוגות מדיה - הכל מיושר למרכז */
   }
   
   .sectionTitle {
     font-size: 1.5rem;
+    text-align: center; /* בתצוגות מדיה - הכל מיושר למרכז */
   }
   
   .image {
@@ -558,7 +577,7 @@
   }
   
   .content {
-    text-align: center;
+    text-align: center; /* בתצוגות מדיה - הכל מיושר למרכז */
     padding: 0 12px;
   }
   
@@ -571,10 +590,15 @@
   
   .glassContainer {
     padding: 1.2rem 1rem;
+    text-align: center; /* בתצוגות מדיה - הכל מיושר למרכז */
   }
   
   .bottomImageContainer {
     width: 55%;
+  }
+  
+  .sectionContainer {
+    text-align: center; /* בתצוגות מדיה - הכל מיושר למרכז */
   }
 }
 
@@ -589,22 +613,27 @@
   .header {
     font-size: 2.1rem;
     padding: 0 8px;
+    text-align: center; /* בתצוגות מדיה - הכל מיושר למרכז */
   }
   
   .title {
     font-size: 1.8rem;
+    text-align: center; /* בתצוגות מדיה - הכל מיושר למרכז */
   }
   
   .subtitle {
     font-size: 1.15rem;
+    text-align: center; /* בתצוגות מדיה - הכל מיושר למרכז */
   }
   
   .description {
     font-size: 1.05rem;
+    text-align: center; /* בתצוגות מדיה - הכל מיושר למרכז */
   }
   
   .sectionTitle {
     font-size: 1.4rem;
+    text-align: center; /* בתצוגות מדיה - הכל מיושר למרכז */
   }
   
   .imageContainer {
@@ -612,7 +641,7 @@
   }
   
   .content {
-    text-align: center;
+    text-align: center; /* בתצוגות מדיה - הכל מיושר למרכז */
     padding: 0 10px;
   }
   
@@ -625,10 +654,15 @@
   
   .glassContainer {
     padding: 1.1rem 0.8rem;
+    text-align: center; /* בתצוגות מדיה - הכל מיושר למרכז */
   }
   
   .bottomImageContainer {
     width: 70%;
+  }
+  
+  .sectionContainer {
+    text-align: center; /* בתצוגות מדיה - הכל מיושר למרכז */
   }
 }
 
@@ -643,22 +677,27 @@
   .header {
     font-size: 2rem;
     padding: 0 5px;
+    text-align: center; /* בתצוגות מדיה - הכל מיושר למרכז */
   }
   
   .title {
     font-size: 1.7rem;
+    text-align: center; /* בתצוגות מדיה - הכל מיושר למרכז */
   }
   
   .subtitle {
     font-size: 1.1rem;
+    text-align: center; /* בתצוגות מדיה - הכל מיושר למרכז */
   }
   
   .description {
     font-size: 1rem;
+    text-align: center; /* בתצוגות מדיה - הכל מיושר למרכז */
   }
   
   .sectionTitle {
     font-size: 1.3rem;
+    text-align: center; /* בתצוגות מדיה - הכל מיושר למרכז */
   }
   
   .imageContainer {
@@ -666,7 +705,7 @@
   }
   
   .content {
-    text-align: center;
+    text-align: center; /* בתצוגות מדיה - הכל מיושר למרכז */
     padding: 0 8px;
   }
   
@@ -679,9 +718,14 @@
   
   .glassContainer {
     padding: 1rem 0.7rem;
+    text-align: center; /* בתצוגות מדיה - הכל מיושר למרכז */
   }
   
   .bottomImageContainer {
     width: 85%;
+  }
+  
+  .sectionContainer {
+    text-align: center; /* בתצוגות מדיה - הכל מיושר למרכז */
   }
 }
