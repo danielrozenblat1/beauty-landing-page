@@ -4,7 +4,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7); /* הגברת האטימות של השכבה העליונה */
+  background-color: rgba(0, 0, 0, 0.7);
   z-index: 999;
 }
 
@@ -13,31 +13,30 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgba(255, 255, 255, 0.97); /* הגברת האטימות של הטופס עצמו */
-  padding: 2.5rem 3rem 2.5rem 2.5rem;
-  border-radius: 1.5rem;
-  max-width: 420px; /* הקטנת הרוחב המקסימלי מ-480px ל-420px */
-  width: 85%; /* הקטנת האחוז מ-90% ל-85% */
-  box-shadow: 
-    0 10px 30px rgba(75, 42, 130, 0.25), /* חיזוק הצללים */
-    inset 0 0 25px rgba(147, 97, 255, 0.12),
-    inset 0 0 5px rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(147, 97, 255, 0.25); /* הגברת הנראות של הגבול */
+  width: 85%;
+  max-width: 480px;
   position: relative;
-  overflow: hidden;
+  z-index: 1000;
   animation: formAppear 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  direction: rtl;
+  font-family: "OpenSans", sans-serif;
 }
 
-/* אלמנטים דקורטיביים */
-.popped::before {
-  content: "";
-  position: absolute;
-  top: 20px;
-  bottom: 20px;
-  right: 0;
-  width: 2px;
-  background: linear-gradient(to bottom, transparent, rgba(147, 97, 255, 0.6), transparent); /* חיזוק הקו הדקורטיבי */
-  border-radius: 3px;
+/* סגנון קונטיינר הטופס - כמו ב-FormScreen */
+.formContainer {
+  width: 100%;
+  max-width: 480px;
+  padding: 2.5rem 3rem 2.5rem 2.5rem;
+  position: relative;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 
+      0 10px 30px rgba(75, 42, 130, 0.18),
+      inset 0 0 25px rgba(147, 97, 255, 0.08),
+      inset 0 0 5px rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(147, 97, 255, 0.15);
+  box-sizing: border-box;
 }
 
 /* עיצוב X - כפתור סגירה */
@@ -63,69 +62,133 @@
   transform: rotate(90deg);
 }
 
-/* אפקטים דקורטיביים */
-.topLeft {
+/* אלמנטים דקורטיביים כמו ב-FormScreen */
+.formDecor {
   position: absolute;
-  top: -40px;
-  left: -40px;
   width: 120px;
   height: 120px;
-  background: radial-gradient(circle at center, rgba(147, 97, 255, 0.5), transparent 70%); /* הפחתת השקיפות של האפקטים */
+  z-index: 0;
+  opacity: 0.6;
+}
+
+.topLeft {
+  top: -40px;
+  left: -40px;
+  background: radial-gradient(circle at center, rgba(147, 97, 255, 0.8), transparent 70%);
   border-radius: 50%;
   filter: blur(25px);
-  z-index: 0;
-  opacity: 0.4; /* הפחתת האופסיטי של האפקט */
-  animation: glowPulse 6s infinite alternate;
 }
 
 .bottomRight {
-  position: absolute;
   bottom: -40px;
   right: -40px;
-  width: 120px;
-  height: 120px;
-  background: radial-gradient(circle at center, rgba(107, 61, 178, 0.5), transparent 70%); /* הפחתת השקיפות של האפקטים */
+  background: radial-gradient(circle at center, rgba(107, 61, 178, 0.8), transparent 70%);
   border-radius: 50%;
   filter: blur(25px);
-  z-index: 0;
-  opacity: 0.4; /* הפחתת האופסיטי של האפקט */
-  animation: glowPulse 6s infinite alternate;
 }
 
-/* שדות הקלט */
+/* קו דקורטיבי בצד הקונטיינר */
+.formContainer::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  bottom: 20px;
+  right: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, transparent, rgba(147, 97, 255, 0.4), transparent);
+  border-radius: 3px;
+}
+
+/* כותרות כמו ב-FormScreen */
+.title {
+  font-family: "OpenSans", sans-serif;
+  font-size: 2rem;
+  text-align: center;
+  margin: 1rem auto 1.5rem;
+  background: linear-gradient(135deg, #4b2a82, #6b3db2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 4px rgba(75, 42, 130, 0.2);
+  line-height: 1.4;
+  position: relative;
+  letter-spacing: -1.5px;
+  animation: titleGlow 4s infinite alternate;
+  z-index: 1;
+}
+
+.subTitle {
+  font-family: "OpenSansR", sans-serif;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #7749c9;
+  position: relative;
+  z-index: 1;
+}
+
+/* כותרת משנה בטופס */
+.formSubtitle {
+  font-family: "OpenSansR", sans-serif;
+  font-size: 1.3rem;
+  text-align: center;
+  margin: 0 0 2rem;
+  color: #7749c9;
+  position: relative;
+  z-index: 1;
+}
+
+/* סגנון הטופס עצמו */
+.form {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* קבוצת שדות קלט */
+.inputGroup {
+  width: 100%;
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* סגנון שדות הקלט */
 .input {
   width: 100%;
   padding: 14px 16px;
-  border: 1px solid rgba(147, 97, 255, 0.4); /* חיזוק הגבול */
+  border: 1px solid rgba(147, 97, 255, 0.3);
   direction: rtl;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.95); /* הגברת האטימות של רקע שדות הקלט */
+  background: rgba(255, 255, 255, 0.8);
   font-size: 1rem;
   color: #4b2a82;
   font-family: "OpenSansR", sans-serif;
   outline: none;
   transition: all 0.25s ease-in-out;
   text-align: right;
-  box-shadow: 0 0 4px rgba(147, 97, 255, 0.1), inset 0 1px 2px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 0 4px rgba(147, 97, 255, 0.05), inset 0 1px 2px rgba(0, 0, 0, 0.02);
   box-sizing: border-box;
-  margin: 0 0 1.5rem;
 }
 
 .input::placeholder {
-  color: rgba(107, 61, 178, 0.65); /* חיזוק צבע הפלייסהולדר */
+  color: rgba(107, 61, 178, 0.5);
   transition: color 0.25s ease;
   text-align: right;
-  font-family: "OpenSansR", sans-serif;
 }
 
 .input:focus {
   border-color: #9361ff;
-  background: rgba(255, 255, 255, 1); /* רקע אטום לחלוטין במצב פוקוס */
-  box-shadow: 0 0 10px rgba(147, 97, 255, 0.3), inset 0 1px 3px rgba(0, 0, 0, 0.03);
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 0 10px rgba(147, 97, 255, 0.25), inset 0 1px 3px rgba(0, 0, 0, 0.02);
 }
 
-/* כפתור שליחה */
-.button {
+/* כפתור שליחה - כמו submitButton ב-FormScreen */
+.submitButton {
   font-family: 'OpenSans', sans-serif;
   font-size: 1.1rem;
   width: 100%;
@@ -139,31 +202,31 @@
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 
-    0 3px 10px rgba(75, 42, 130, 0.25), /* חיזוק הצל */
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      0 3px 10px rgba(75, 42, 130, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15);
   position: relative;
   overflow: hidden;
   font-weight: 600;
   letter-spacing: 0.5px;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
   box-sizing: border-box;
 }
 
-.button:hover {
+.submitButton:hover {
   transform: translateY(-2px);
   background: linear-gradient(to bottom, #8a5de0, #7849c4);
   box-shadow: 
-    0 4px 12px rgba(75, 42, 130, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+      0 4px 12px rgba(75, 42, 130, 0.25),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
-.button:active {
+.submitButton:active {
   transform: translateY(0);
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 /* אפקט ברק עדין לכפתור */
-.button::before {
+.submitButton::before {
   content: '';
   position: absolute;
   top: 0;
@@ -172,49 +235,27 @@
   height: 100%;
   background: linear-gradient(120deg, 
       rgba(255, 255, 255, 0) 20%, 
-      rgba(255, 255, 255, 0.25) 50%, 
+      rgba(255, 255, 255, 0.2) 50%, 
       rgba(255, 255, 255, 0) 80%);
   transform: translateX(-100%) skewX(-15deg);
   transition: all 0.8s ease;
 }
 
-.button:hover::before {
+.submitButton:hover::before {
   transform: translateX(100%) skewX(-15deg);
 }
 
-/* כותרות */
-.title {
-  font-family: "OpenSans", sans-serif;
-  font-size: 2.5rem;
+/* הודעה מתחת לכפתור על מספר מקומות מוגבל */
+.limitedNotice {
+  margin-top: 1.2rem;
+  font-size: 0.85rem;
+  color: #6b3db2;
+  font-style: italic;
   text-align: center;
-  margin: 1rem auto 2rem;
-  background: linear-gradient(135deg, #4b2a82, #6b3db2);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 2px 4px rgba(75, 42, 130, 0.25); /* חיזוק הצל של הטקסט */
-  line-height: 1.4;
-  position: relative;
-  letter-spacing: -1.5px;
-  direction: rtl;
-  animation: titleGlow 4s infinite alternate;
-}
-
-.subTitle {
+  opacity: 0.85;
   font-family: "OpenSansR", sans-serif;
-  font-size: 1.3rem;
-  text-align: center;
-  margin: 1.5rem auto;
-  color: #6b3db2; /* חיזוק צבע הכותרת המשנית */
-  width: 100%;
-  direction: rtl;
-}
-
-.column {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  position: relative;
-  z-index: 1;
+  letter-spacing: 0.5px;
+  padding: 0 1rem;
 }
 
 /* אנימציות */
@@ -231,37 +272,49 @@
   }
 }
 
+/* נצנוץ עדין לפינות הטופס */
 @keyframes glowPulse {
   0% {
-    opacity: 0.25;
+    opacity: 0.3;
     filter: blur(15px);
   }
   50% {
-    opacity: 0.4;
+    opacity: 0.7;
     filter: blur(20px);
   }
   100% {
-    opacity: 0.25;
+    opacity: 0.3;
     filter: blur(15px);
   }
 }
 
+.formDecor {
+  animation: glowPulse 6s infinite alternate;
+}
+
+/* אנימציה לכותרת */
 @keyframes titleGlow {
   0% {
-    text-shadow: 0 2px 4px rgba(75, 42, 130, 0.25);
+    text-shadow: 0 2px 4px rgba(75, 42, 130, 0.2);
   }
   50% {
-    text-shadow: 0 2px 8px rgba(75, 42, 130, 0.5);
+    text-shadow: 0 2px 8px rgba(75, 42, 130, 0.4);
   }
   100% {
-    text-shadow: 0 2px 4px rgba(75, 42, 130, 0.25);
+    text-shadow: 0 2px 4px rgba(75, 42, 130, 0.2);
   }
 }
 
-/* רספונסיביות */
+/* ========== רספונסיביות ========== */
+/* מתחת ל-350px */
 @media screen and (max-width: 349px) {
   .popped {
-    width: 85%; /* הקטנת האחוז מ-90% ל-85% */
+    width: 90%;
+    max-width: none;
+  }
+  
+  .formContainer {
+    width: 100%;
     max-width: none;
     padding: 1.5rem 1rem;
     border-radius: 1rem;
@@ -270,10 +323,15 @@
   .title {
     font-size: 1.5rem;
     letter-spacing: -0.5px;
-    margin: 0.7rem auto 1.5rem;
+    margin: 0.7rem auto 1rem;
   }
   
   .subTitle {
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .formSubtitle {
     font-size: 1rem;
     margin: 0 0 1.5rem;
   }
@@ -283,12 +341,16 @@
     font-size: 0.9rem;
   }
   
-  .button {
+  .submitButton {
     font-size: 0.95rem;
     padding: 12px 20px;
   }
   
-  .topLeft, .bottomRight {
+  .limitedNotice {
+    font-size: 0.75rem;
+  }
+  
+  .formDecor {
     width: 80px;
     height: 80px;
   }
@@ -304,9 +366,16 @@
   }
 }
 
+/* 350px - 450px */
 @media screen and (min-width: 350px) and (max-width: 450px) {
   .popped {
-    width: 85%; /* הקטנת האחוז מ-90% ל-85% */
+    width: 90%;
+    max-width: none;
+  }
+  
+  .formContainer {
+    width: 100%;
+    max-width: none;
     padding: 1.8rem 1.2rem;
     border-radius: 1.2rem;
   }
@@ -314,10 +383,17 @@
   .title {
     font-size: 1.7rem;
     letter-spacing: -0.8px;
+    margin: 0.8rem auto 1.2rem;
   }
   
   .subTitle {
     font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .formSubtitle {
+    font-size: 1.1rem;
+    margin: 0 0 1.7rem;
   }
   
   .input {
@@ -325,8 +401,63 @@
     font-size: 0.95rem;
   }
   
-  .button {
+  .submitButton {
     font-size: 1rem;
     padding: 13px 22px;
+  }
+  
+  .formDecor {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+/* 450px - 550px */
+@media screen and (min-width: 451px) and (max-width: 550px) {
+  .popped {
+    width: 90%;
+    max-width: none;
+  }
+  
+  .formContainer {
+    width: 100%;
+    max-width: none;
+    padding: 2rem 1.5rem;
+  }
+  
+  .title {
+    font-size: 1.8rem;
+    letter-spacing: -1px;
+  }
+  
+  .formSubtitle {
+    font-size: 1.1rem;
+  }
+  
+  .formDecor {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/* 550px - 650px */
+@media screen and (min-width: 551px) and (max-width: 650px) {
+  .popped {
+    width: 90%;
+    max-width: 480px;
+  }
+  
+  .formContainer {
+    width: 100%;
+    padding: 2.2rem 2rem 2.2rem 1.8rem;
+  }
+  
+  .title {
+    font-size: 2rem;
+    letter-spacing: -1.2px;
+  }
+  
+  .formSubtitle {
+    font-size: 1.2rem;
   }
 }

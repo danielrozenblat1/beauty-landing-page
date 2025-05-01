@@ -6,18 +6,19 @@ import { useNavigate } from "react-router-dom";
 const Popped = () => {
   const navigate = useNavigate();
   const [opened, setOpened] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
   
   // State management like in FormScreen
   const [formData, setFormData] = useState({
     fullName: "",
     phone: "",
-    email: ""
+    occupation: ""
   });
   
   // Refs for direct DOM access
   const nameRef = useRef(null);
   const phoneRef = useRef(null);
-  const mailRef = useRef(null);
+  const reasonRef = useRef(null);
   
   // URL שאליו נשלח את הליד - using the same as in FormScreen
   const serverUrl = "https://dynamic-server-dfc88e1f1c54.herokuapp.com/leads/newLead";
@@ -53,26 +54,27 @@ const Popped = () => {
     }));
   };
 
-  const submitHandler = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     
     const name = nameRef?.current?.value;
     const phone = phoneRef?.current?.value;
-    const email = mailRef?.current?.value;
+    const reason = reasonRef?.current?.value;
 
+ 
     // Validation logic from FormScreen
-    if (name.trim().length <= 2) {
+    if(name.trim().length <= 2){
       alert("אנא הכנס שם מלא");
       return;
     }
     
-    if (phone.trim().length !== 10) {
+    if(phone.trim().length !== 10){
       alert("אנא הכנס מספר טלפון הכולל 10 ספרות");
       return;
     }
     
-    if (!email.includes("@")) {
-      alert("אנא הכנס מייל תקין");
+    if(reason.trim().length <= 2){
+      alert("אנא הכנס במה את עוסקת");
       return;
     }
     
@@ -80,7 +82,7 @@ const Popped = () => {
     const serverData = {
       name,
       phone,
-      reason: email, // using email in place of reason for this form
+      reason,
       reciver
     };
     
@@ -103,15 +105,16 @@ const Popped = () => {
         // Reset form
         nameRef.current.value = "";
         phoneRef.current.value = "";
-        mailRef.current.value = "";
+        reasonRef.current.value = "";
         
         // Reset state as well
         setFormData({
           fullName: "",
           phone: "",
-          email: ""
+          occupation: ""
         });
         
+        setSubmitted(true);
         setOpened(false);
         
         // Navigate to thank you page
@@ -132,39 +135,62 @@ const Popped = () => {
         <div className={styles.overlay}>
           <div className={styles.popped}>
             <FaTimes className={styles.x} onClick={handleToggle} />
-            <div className={styles.subTitle}>
-              "בעל עסק טוב נמדד ביכולת שלו לקחת החלטות"
+            <div className={styles.formContainer}>
+              {/* Classical decorative elements like in FormScreen */}
+              <div className={styles.formDecor + " " + styles.topLeft}></div>
+              <div className={styles.formDecor + " " + styles.bottomRight}></div>
+              
+        
+
+              
+              <p className={styles.formSubtitle}>תשאירי פרטים ונחזור אלייך בהקדם</p>
+              
+              <form className={styles.form} onSubmit={handleSubmit}>
+                <div className={styles.inputGroup}>
+                  <input 
+                    type="text" 
+                    name="fullName" 
+                    value={formData.fullName}
+                    onChange={handleChange}
+                    placeholder="מה השם?" 
+                    className={styles.input} 
+                    ref={nameRef}
+                    required 
+                  />
+                </div>
+                
+                <div className={styles.inputGroup}>
+                  <input 
+                    type="tel" 
+                    name="phone" 
+                    value={formData.phone}
+                    onChange={handleChange}
+                    placeholder="מספר טלפון" 
+                    className={styles.input} 
+                    ref={phoneRef}
+                    required 
+                  />
+                </div>
+                
+                <div className={styles.inputGroup}>
+                  <input 
+                    type="text" 
+                    name="occupation" 
+                    value={formData.occupation}
+                    onChange={handleChange}
+                    placeholder="במה את עוסקת?" 
+                    className={styles.input} 
+                    ref={reasonRef}
+                    required 
+                  />
+                </div>
+                
+                <button type="submit" className={styles.submitButton}>
+                  דניאל, בוא נדבר!
+                </button>
+                <p className={styles.limitedNotice}>* מספר המקומות בחודש מוגבל *</p>
+              </form>
             </div>
-            <div className={styles.title}>זמן לקחת החלטה</div>
-            <form className={styles.form} onSubmit={submitHandler}>
-              <div className={styles.column}>
-                <input
-                  className={styles.input}
-                  ref={nameRef}
-                  name="fullName"
-                  value={formData.fullName}
-                  onChange={handleChange}
-                  placeholder="שם מלא"
-                />
-                <input
-                  className={styles.input}
-                  ref={phoneRef}
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  placeholder="מספר טלפון"
-                />
-                <input
-                  className={styles.input}
-                  ref={mailRef}
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="מייל"
-                />
-                <button type="submit" className={styles.button}>דניאל, בוא נדבר</button>
-              </div>
-            </form>
           </div>
         </div>
       )}

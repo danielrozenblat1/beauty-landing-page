@@ -6,7 +6,7 @@
   position: relative;
 }
 
-/* Carousel with horizontal scroll */
+/* Carousel with horizontal scroll - משופר לגלילה חלקה יותר */
 .scrollCarousel {
   display: flex;
   overflow-x: auto;
@@ -14,10 +14,14 @@
   padding: 20px 0;
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
-  scroll-snap-type: x proximity;
+  scroll-snap-type: x mandatory; /* שינוי ל-mandatory לגלילה מדויקת יותר */
   gap: 20px;
-  cursor: grab; /* מחוון "אחיזה" שמראה שאפשר לגלול */
-  scroll-behavior: smooth;
+  cursor: grab;
+  /* הסרת scroll-behavior: smooth כדי לאפשר תנועה טבעית יותר עם המגע */
+  -webkit-overflow-scrolling: touch; /* גלילה חלקה יותר במכשירי iOS */
+  /* מניעת תזוזה אוטומטית */
+  animation: none;
+  transition: none;
 }
 
 /* הסתרת סקרולבר */
@@ -26,16 +30,22 @@
 }
 
 .scrollCarousel:active {
-  cursor: grabbing; /* משנה את הסמן כשמבצעים גרירה */
+  cursor: grabbing;
+}
+
+/* הוספת קלאס למניעת תזוזה אוטומטית */
+.noAutoScroll {
+  scroll-behavior: auto;
 }
 
 .imageWrapper {
   flex-shrink: 0;
   width: 400px;
-  height: 400px; /* שמירה על יחס 1:1 */
+  height: 400px;
   position: relative;
   overflow: hidden;
-  transition: transform 0.3s ease;
+  transition: transform 0.2s ease; /* הורדתי את זמן המעבר לתגובה מהירה יותר */
+  scroll-snap-align: center; /* לגלילה מדויקת יותר - כל תמונה תיעצר במרכז */
 }
 
 .imageWrapper:hover {
@@ -48,19 +58,48 @@
   object-fit: cover;
   border-radius: 8px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  pointer-events: none; /* מונע בעיות גרירה על התמונה עצמה */
 }
 
 /* Responsive adjustments */
 @media only screen and (max-width: 450px) {
   .imageWrapper {
     width: 350px;
-    height: 350px; /* שמירה על יחס 1:1 */
+    height: 350px;
+    scroll-snap-align: center;
   }
 }
 
 @media only screen and (min-width: 451px) and (max-width: 1050px) {
   .imageWrapper {
     width: 280px;
-    height: 280px; /* שמירה על יחס 1:1 */
+    height: 280px;
+    scroll-snap-align: center;
   }
+}
+
+/* אופציונלי: הוספת כפתורי ניווט לקרוסלה */
+.navButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.7);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.prevButton {
+  left: 10px;
+}
+
+.nextButton {
+  right: 10px;
 }

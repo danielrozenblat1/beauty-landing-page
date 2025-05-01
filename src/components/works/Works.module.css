@@ -25,6 +25,7 @@
   overflow: hidden;
   perspective: 1000px;
   flex-shrink: 0;
+  scroll-snap-align: center; /* משפר את מיקום האלמנטים בעת גלילה */
  }
  
  .work::before {
@@ -171,7 +172,7 @@
   overflow: hidden;
  }
 
-/* קרוסלה עם גלילה אופקית */
+/* קרוסלה עם גלילה אופקית - גרסה משופרת */
 .scrollCarousel {
   display: flex;
   overflow-x: auto;
@@ -183,6 +184,14 @@
   gap: 20px;
   cursor: grab; /* מחוון "אחיזה" שמראה שאפשר לגלול */
   scroll-behavior: smooth;
+  overscroll-behavior-x: contain; /* מונע גלילה מעבר לגבולות */
+  padding-left: 20px; /* מרווח בצדדים */
+  padding-right: 20px;
+  /* מבטל את האנימציה האוטומטית */
+  animation: none;
+  /* שיפור מהירות הגלילה */
+  scroll-snap-type: x mandatory; /* קובע שהפריטים ייצמדו למקום בסיום הגלילה */
+  touch-action: pan-x; /* מאפשר פעולות מגע רק בציר האופקי */
 }
 
 /* הסתרת סקרולבר */
@@ -192,6 +201,34 @@
 
 .scrollCarousel:active {
   cursor: grabbing; /* משנה את הסמן כשמבצעים גרירה */
+}
+
+/* שיפור חוויית משתמש בנגיעה במסך (מובייל) */
+.scrollCarousel {
+  -webkit-overflow-scrolling: touch; /* שיפור גלילה חלקה במכשירי iOS */
+}
+
+/* כפתורי ניווט (אופציונלי) */
+.carouselNav {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.carouselButton {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  padding: 10px 15px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.carouselButton:hover {
+  background: rgba(147, 112, 219, 0.2);
 }
 
 /* מדיה קוורי - התאמה למסכים שונים */
@@ -226,6 +263,11 @@
  
   .description {
     font-size: 0.9rem;
+  }
+  
+  .scrollCarousel {
+    padding-left: 10px;
+    padding-right: 10px;
   }
 }
  

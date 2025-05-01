@@ -62,7 +62,7 @@ const NavBarNew = () => {
         <button className={styles.menuButton} onClick={scrollToForm}>
           <div className={styles.buttonContent}>
             <span className={styles.buttonText}>דניאל, בוא נדבר!</span>
-            <span className={styles.buttonTextHover}>תלחצי כאן</span>
+            <span className={styles.buttonTextHover}>דניאל, בוא נדבר!</span>
           </div>
         </button>
       </div>

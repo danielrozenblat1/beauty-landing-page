@@ -93,7 +93,7 @@ const ForthScreen = () => {
       
       <div className={`${styles.titlePain} ${styles.fadeIn} ${styles.whiteContainer} ${styles.bounceAnimation} ${isDarkMode ? styles.whiteContainerDark : ''}`}>
     
-        וככה נוצר מצב ש
+        וככה נוצר מצב ש..
     
       </div>
       <div className={styles.row}>
