@@ -4,7 +4,7 @@
     direction: rtl;
     width: 100%;
     display: flex;
-    margin:-1rem auto;
+    margin:-1rem auto 0;
     justify-content: center;
     align-items: center;
     font-family: "OpenSans", sans-serif;
