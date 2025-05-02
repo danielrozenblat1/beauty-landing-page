@@ -47,7 +47,7 @@ const YouTubeShortsCarousel = ({ shortsIds = [] }) => {
             <div key={`${id}-${index}`} className={styles.shortsItem}>
               <div className={styles.shortsWrapper}>
                 <iframe
-                  src={`https://www.youtube.com/embed/${id}?loop=1&controls=1&rel=0`}
+                  src={`https://www.youtube-nocookie.com/embed/${id}?loop=1&controls=1&rel=0`}
                   title={`YouTube Short ${index + 1}`}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen

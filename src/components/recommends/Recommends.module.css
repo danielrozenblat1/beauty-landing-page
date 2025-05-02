@@ -1,12 +1,15 @@
-/* Add these styles to your Recommends.module.css file */
+/* Recommends.module.css */
 
 .recommendsContainer {
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  justify-content: center;
   width: 100%;
   overflow: hidden;
-  position: relative;
 }
 
-/* Carousel with horizontal scroll - משופר לגלילה חלקה יותר */
+/* קרוסלה עם גלילה אופקית - גרסה משופרת לגלילה חלקה */
 .scrollCarousel {
   display: flex;
   overflow-x: auto;
@@ -14,14 +17,20 @@
   padding: 20px 0;
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
-  scroll-snap-type: x mandatory; /* שינוי ל-mandatory לגלילה מדויקת יותר */
   gap: 20px;
   cursor: grab;
-  /* הסרת scroll-behavior: smooth כדי לאפשר תנועה טבעית יותר עם המגע */
-  -webkit-overflow-scrolling: touch; /* גלילה חלקה יותר במכשירי iOS */
-  /* מניעת תזוזה אוטומטית */
-  animation: none;
-  transition: none;
+  overscroll-behavior-x: none; /* מונע "bounce" בגלילה */
+  padding-left: 20px;
+  padding-right: 20px;
+  
+  /* שיפורים משמעותיים לגלילה חלקה */
+  scroll-behavior: auto; /* מאפשר גלילה טבעית */
+  touch-action: pan-x; /* מאפשר גלילה מגע אופקית בלבד */
+  scroll-snap-type: none; /* הסרת ה-snap המגביל */
+  
+  /* שיפורי ביצועים */
+  will-change: scroll-position; /* מאותת לדפדפן שהמיקום ישתנה */
+  -webkit-overflow-scrolling: touch; /* לביצועים טובים במכשירי Apple */
 }
 
 /* הסתרת סקרולבר */
@@ -30,12 +39,7 @@
 }
 
 .scrollCarousel:active {
-  cursor: grabbing;
-}
-
-/* הוספת קלאס למניעת תזוזה אוטומטית */
-.noAutoScroll {
-  scroll-behavior: auto;
+  cursor: grabbing; /* משנה את הסמן כשמבצעים גרירה */
 }
 
 .imageWrapper {
@@ -44,12 +48,19 @@
   height: 400px;
   position: relative;
   overflow: hidden;
-  transition: transform 0.2s ease; /* הורדתי את זמן המעבר לתגובה מהירה יותר */
-  scroll-snap-align: center; /* לגלילה מדויקת יותר - כל תמונה תיעצר במרכז */
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+  
+  /* שיפורי ביצועים */
+  will-change: transform;
+  transform: translateZ(0);
+  perspective: 1000px;
+  backface-visibility: hidden;
 }
 
 .imageWrapper:hover {
   transform: scale(1.03);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
 .image {
@@ -57,49 +68,46 @@
   height: 100%;
   object-fit: cover;
   border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  pointer-events: none; /* מונע בעיות גרירה על התמונה עצמה */
+  transition: all 0.3s ease;
 }
 
-/* Responsive adjustments */
-@media only screen and (max-width: 450px) {
+/* מדיה קוורי - התאמה למסכים שונים */
+@media only screen and (max-width: 350px) {
+  .imageWrapper {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .scrollCarousel {
+    padding-left: 10px;
+    padding-right: 10px;
+    gap: 10px;
+  }
+}
+
+@media only screen and (min-width: 350px) and (max-width: 450px) {
+  .imageWrapper {
+    width: 300px;
+    height: 300px;
+  }
+  
+  .scrollCarousel {
+    padding-left: 10px;
+    padding-right: 10px;
+    gap: 12px;
+  }
+}
+
+@media only screen and (min-width: 450px) and (max-width: 650px) {
   .imageWrapper {
     width: 350px;
     height: 350px;
-    scroll-snap-align: center;
   }
 }
 
-@media only screen and (min-width: 451px) and (max-width: 1050px) {
+@media only screen and (min-width: 650px) and (max-width: 850px) {
   .imageWrapper {
-    width: 280px;
-    height: 280px;
-    scroll-snap-align: center;
+    width: 370px;
+    height: 370px;
   }
-}
-
-/* אופציונלי: הוספת כפתורי ניווט לקרוסלה */
-.navButton {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.7);
-  border: none;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 10;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.prevButton {
-  left: 10px;
-}
-
-.nextButton {
-  right: 10px;
 }

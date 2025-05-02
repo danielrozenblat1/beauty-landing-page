@@ -39,71 +39,126 @@ const Recommends = () => {
   const scrollContainerRef = useRef(null);
   
   const images = [
-   result26, result27,   result33, result34, result35, result36,result28, result29, result30, result31, result32, result4, result5, result7, result8, 
+    result26, result27, result33, result34, result35, result36, result28, result29, result30, result31, result32, result4, result5, result7, result8, 
     result9, result10, result11, result12, result14, result15, result16, 
     result17, result18, result21, result22, result23, result24, result25, 
-    result1, 
-  
+    result1,
   ];
 
-  // הגדרת אוטו-סקרול אינסופי שמאפשר גלילה ידנית
+  // מימוש משופר למניעת קפיצות בגלילה
   useEffect(() => {
     const scrollContainer = scrollContainerRef.current;
     if (!scrollContainer) return;
     
     let scrollAmount = 0;
     let animationId = null;
-    const step = 0.5; // מהירות הגלילה - ניתן להתאים
+    const step = 0.3; // מהירות איטית יותר למניעת קפיצות
     let isPaused = false;
+    let isManualScrolling = false;
+    let lastScrollPosition = 0;
+    let lastTimestamp = 0;
+    let scrollTimeout;
     
-    const animation = () => {
-      if (scrollContainer && !isPaused) {
-        scrollAmount += step;
-        scrollContainer.scrollLeft = scrollAmount;
+    // אתחול מיקום הגלילה לתחילת הקרוסלה
+    setTimeout(() => {
+      scrollContainer.scrollLeft = 0;
+      scrollAmount = 0;
+    }, 100);
+
+    // פונקציית אנימציה משופרת לגלילה חלקה
+    const animation = (timestamp) => {
+      if (!lastTimestamp) lastTimestamp = timestamp;
+      const deltaTime = timestamp - lastTimestamp;
+      lastTimestamp = timestamp;
+      
+      if (scrollContainer && !isPaused && !isManualScrolling) {
+        // גלילה הדרגתית ואחידה עם חישוב דלתא מדויק יותר
+        const moveAmount = step * (deltaTime / 16); // נורמליזציה לפי 60fps
         
-        // בדיקה אם הגענו לסוף וחזרה להתחלה
+        // שימוש בגלילה מדויקת יותר עם הגבלת הדיוק
+        scrollAmount += moveAmount;
+        
+        // עיגול למספר עשרוני קטן למניעת בעיות דיוק מספרי
+        const roundedScrollAmount = Math.round(scrollAmount * 100) / 100;
+        scrollContainer.scrollLeft = roundedScrollAmount;
+        
+        // בדיקה אם הגענו לסוף וחזרה להתחלה בצורה חלקה
         if (scrollAmount >= scrollContainer.scrollWidth / 2) {
+          // קפיצה לתחילת הגלילה ללא אנימציה
+          scrollContainer.style.scrollBehavior = 'auto';
           scrollAmount = 0;
           scrollContainer.scrollLeft = 0;
+          // חזרה לאנימציה חלקה
+          setTimeout(() => {
+            scrollContainer.style.scrollBehavior = 'auto';
+          }, 50);
         }
       }
+      
       animationId = requestAnimationFrame(animation);
     };
     
     // התחלת האנימציה
     animationId = requestAnimationFrame(animation);
     
-    // עצירת אנימציה זמנית בעת אינטראקציה משתמש
+    // עצירת האנימציה בעת אינטראקציית משתמש
     const pauseAnimation = () => {
       isPaused = true;
+      clearTimeout(scrollTimeout);
     };
     
-    // המשך אנימציה לאחר סיום אינטראקציה
+    // המשך האנימציה לאחר אינטראקציית משתמש
     const resumeAnimation = () => {
+      clearTimeout(scrollTimeout);
+      
       // עדכון מיקום הגלילה הנוכחי
       scrollAmount = scrollContainer.scrollLeft;
-      setTimeout(() => {
+      
+      // המשך האנימציה לאחר השהייה
+      scrollTimeout = setTimeout(() => {
         isPaused = false;
-      }, 3000); // המשך אנימציה אחרי 3 שניות של חוסר פעילות
+        isManualScrolling = false;
+      }, 6000); // המשך אנימציה אחרי 6 שניות של חוסר פעילות
     };
     
-    // מאזיני אירועים
+    // זיהוי גלילה ידנית משופר
+    const handleScroll = () => {
+      // בדיקה אם הגלילה הידנית משמעותית
+      if (Math.abs(scrollContainer.scrollLeft - lastScrollPosition) > 1) {
+        isManualScrolling = true;
+        isPaused = true;
+        clearTimeout(scrollTimeout);
+        
+        scrollTimeout = setTimeout(() => {
+          // עדכון מיקום הגלילה לאחר שהמשתמש סיים לגלול
+          scrollAmount = scrollContainer.scrollLeft;
+          isPaused = false;
+          isManualScrolling = false;
+        }, 6000);
+      }
+      
+      lastScrollPosition = scrollContainer.scrollLeft;
+    };
+    
+    // רישום מאזיני אירועים לזיהוי אינטראקציות משתמש
     scrollContainer.addEventListener('mousedown', pauseAnimation);
     scrollContainer.addEventListener('touchstart', pauseAnimation);
-    scrollContainer.addEventListener('wheel', pauseAnimation);
+    scrollContainer.addEventListener('scroll', handleScroll, { passive: true });
     document.addEventListener('mouseup', resumeAnimation);
     document.addEventListener('touchend', resumeAnimation);
     
+    // ניקוי מאזיני אירועים בעת פירוק הקומפוננטה
     return () => {
       if (animationId) {
         cancelAnimationFrame(animationId);
       }
       
-      // הסרת מאזיני אירועים
+      clearTimeout(scrollTimeout);
+      
       if (scrollContainer) {
         scrollContainer.removeEventListener('mousedown', pauseAnimation);
         scrollContainer.removeEventListener('touchstart', pauseAnimation);
-        scrollContainer.removeEventListener('wheel', pauseAnimation);
+        scrollContainer.removeEventListener('scroll', handleScroll);
       }
       document.removeEventListener('mouseup', resumeAnimation);
       document.removeEventListener('touchend', resumeAnimation);

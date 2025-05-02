@@ -60,12 +60,12 @@ const SixthScreen = () => {
    <div className={`${styles.container} ${isDarkMode ? styles.containerDark : ''}`} ref={containerRef}>
       
 
-      <div className={`${styles.title} ${styles.fadeIn} ${isDarkMode ? styles.titleDark : ''}`}>״איך אני אדע אם זה הזמן לעשות דף נחיתה?״</div>
+      <div className={`${styles.title} ${styles.fadeIn} ${isDarkMode ? styles.titleDark : ''}`}>״דניאל, איך אני אדע אם זה הזמן לעשות דף נחיתה?״</div>
       <div className={`${styles.description} ${styles.fadeIn} ${isDarkMode ? styles.descriptionDark : ''}`}>
  האמת,אולי זה נשמע לך הזוי שאני אומר את זה אבל לא כל אחת צריכה דף נחיתה ולא תמיד זה הזמן הנכון
       </div>
       <div className={`${styles.description} ${styles.fadeIn} ${isDarkMode ? styles.descriptionDark : ''}`}>
-אז.. את צריכה דף נחיתה אם :
+אז בואי נעשה סדר, את צריכה דף נחיתה אם :
       </div>
 
  <WhoDoesList/>

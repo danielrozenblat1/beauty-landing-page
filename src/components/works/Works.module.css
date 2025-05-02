@@ -25,10 +25,16 @@
   overflow: hidden;
   perspective: 1000px;
   flex-shrink: 0;
-  scroll-snap-align: center; /* משפר את מיקום האלמנטים בעת גלילה */
- }
+  
+  /* הסרת snap alignment לגלילה חלקה */
+  scroll-snap-align: none;
+  
+  /* שיפורי ביצועים */
+  will-change: transform;
+  transform: translateZ(0);
+}
  
- .work::before {
+.work::before {
   content: '';
   position: absolute;
   top: -50%;
@@ -42,18 +48,18 @@
   );
   transform: rotate(30deg);
   animation: lightRotate 8s linear infinite;
- }
+}
  
- @keyframes lightRotate {
+@keyframes lightRotate {
   0% {
     transform: rotate(0deg);
   }
   100% {
     transform: rotate(360deg);
   }
- }
+}
 
- .work::after {
+.work::after {
   content: '';
   position: absolute;
   inset: 0;
@@ -72,18 +78,18 @@
   mask-composite: exclude;
   pointer-events: none;
   animation: borderGlow 4s ease-in-out infinite alternate;
- }
+}
  
- @keyframes borderGlow {
+@keyframes borderGlow {
   0% {
     opacity: 0.5;
   }
   100% {
     opacity: 1;
   }
- }
+}
  
- .href {
+.href {
   font-family: "AssistantR";
   font-size: 1rem;
   text-align: center;
@@ -91,9 +97,9 @@
   margin: 2% auto;
   color: #000000;
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
- }
+}
  
- .text {
+.text {
   padding: 20px;
   flex: 1;
   display: flex;
@@ -106,14 +112,14 @@
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   box-shadow: none;
- }
+}
  
- .imageContainer {
+.imageContainer {
   position: relative;
   flex: 1;
- }
+}
  
- .img {
+.img {
   width: 90%;
   height: auto;
   display: block;
@@ -121,17 +127,17 @@
   cursor: pointer;
   transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   filter: brightness(1.02) drop-shadow(0 5px 15px rgba(147, 112, 219, 0.1));
- }
+}
  
- .img:hover {
+.img:hover {
   transform: scale(1.05) translateY(-5px);
   filter: 
     brightness(1.05) 
     drop-shadow(0 8px 25px rgba(147, 112, 219, 0.2))
     contrast(1.02);
- }
+}
  
- .title {
+.title {
   font-family: "Assistant";
   font-size: 2.5rem;
   text-align: center;
@@ -140,9 +146,9 @@
   color: #000000;
   font-weight: 400;
   animation: titleShine 3s infinite;
- }
+}
  
- @keyframes titleShine {
+@keyframes titleShine {
   0% {
     text-shadow: none;
   }
@@ -152,27 +158,27 @@
   100% {
     text-shadow: none;
   }
- }
+}
  
- .description {
+.description {
   font-family: "Assistant";
   font-size: 1.2rem;
   text-align: center;
   direction: rtl;
   margin: 10px auto;
   color: #000000;
- }
+}
  
- .worksContainer {
+.worksContainer {
   display: flex;
   margin: 0 auto;
   flex-direction: column;
   justify-content: center;
   width: 100%;
   overflow: hidden;
- }
+}
 
-/* קרוסלה עם גלילה אופקית - גרסה משופרת */
+/* קרוסלה עם גלילה אופקית - גרסה משופרת לגלילה חלקה */
 .scrollCarousel {
   display: flex;
   overflow-x: auto;
@@ -180,18 +186,20 @@
   padding: 20px 0;
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
-  scroll-snap-type: x proximity; /* פחות נוקשה מ-mandatory */
   gap: 20px;
-  cursor: grab; /* מחוון "אחיזה" שמראה שאפשר לגלול */
-  scroll-behavior: smooth;
-  overscroll-behavior-x: contain; /* מונע גלילה מעבר לגבולות */
-  padding-left: 20px; /* מרווח בצדדים */
+  cursor: grab;
+  overscroll-behavior-x: none; /* מונע "bounce" בגלילה */
+  padding-left: 20px;
   padding-right: 20px;
-  /* מבטל את האנימציה האוטומטית */
-  animation: none;
-  /* שיפור מהירות הגלילה */
-  scroll-snap-type: x mandatory; /* קובע שהפריטים ייצמדו למקום בסיום הגלילה */
-  touch-action: pan-x; /* מאפשר פעולות מגע רק בציר האופקי */
+  
+  /* שיפורים משמעותיים לגלילה חלקה */
+  scroll-behavior: auto; /* מאפשר גלילה טבעית */
+  touch-action: pan-x; /* מאפשר גלילה מגע אופקית בלבד */
+  scroll-snap-type: none; /* הסרת ה-snap המגביל */
+  
+  /* שיפורי ביצועים */
+  will-change: scroll-position; /* מאותת לדפדפן שהמיקום ישתנה */
+  -webkit-overflow-scrolling: touch; /* לביצועים טובים במכשירי Apple */
 }
 
 /* הסתרת סקרולבר */
@@ -201,11 +209,6 @@
 
 .scrollCarousel:active {
   cursor: grabbing; /* משנה את הסמן כשמבצעים גרירה */
-}
-
-/* שיפור חוויית משתמש בנגיעה במסך (מובייל) */
-.scrollCarousel {
-  -webkit-overflow-scrolling: touch; /* שיפור גלילה חלקה במכשירי iOS */
 }
 
 /* כפתורי ניווט (אופציונלי) */

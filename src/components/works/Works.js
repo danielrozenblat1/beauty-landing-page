@@ -57,7 +57,7 @@ const Works = () => {
 
   const scrollContainerRef = useRef(null);
 
-  // הגדרת אוטו-סקרול אינסופי שמאפשר גלילה ידנית
+  // מימוש משופר לגלילה אינסופית
   useEffect(() => {
     const scrollContainer = scrollContainerRef.current;
     if (!scrollContainer) return;
@@ -66,55 +66,93 @@ const Works = () => {
     let animationId = null;
     const step = 0.5; // מהירות הגלילה
     let isPaused = false;
+    let isManualScrolling = false;
+    let lastScrollPosition = 0;
+    let lastTimestamp = 0;
+    let scrollTimeout;
     
-    const animation = () => {
-      if (scrollContainer && !isPaused) {
-        scrollAmount += step;
+    // פונקציית אנימציה לגלילה אוטומטית
+    const animation = (timestamp) => {
+      if (!lastTimestamp) lastTimestamp = timestamp;
+      const deltaTime = timestamp - lastTimestamp;
+      lastTimestamp = timestamp;
+      
+      if (scrollContainer && !isPaused && !isManualScrolling) {
+        // גלילה הדרגתית ואחידה
+        scrollAmount += step * (deltaTime / 16); // נורמליזציה לפי 60fps
         scrollContainer.scrollLeft = scrollAmount;
         
-        // בדיקה אם הגענו לסוף וחזרה להתחלה
+        // איפוס הגלילה בהגעה למחצית התוכן (עבור אפקט אינסופי)
         if (scrollAmount >= scrollContainer.scrollWidth / 2) {
           scrollAmount = 0;
           scrollContainer.scrollLeft = 0;
         }
       }
+      
       animationId = requestAnimationFrame(animation);
     };
     
     // התחלת האנימציה
     animationId = requestAnimationFrame(animation);
     
-    // עצירת אנימציה זמנית בעת אינטראקציה משתמש
+    // עצירת האנימציה בעת אינטראקציית משתמש
     const pauseAnimation = () => {
       isPaused = true;
+      clearTimeout(scrollTimeout);
     };
     
-    // המשך אנימציה לאחר סיום אינטראקציה
+    // המשך האנימציה לאחר אינטראקציית משתמש
     const resumeAnimation = () => {
+      clearTimeout(scrollTimeout);
+      
       // עדכון מיקום הגלילה הנוכחי
       scrollAmount = scrollContainer.scrollLeft;
-      setTimeout(() => {
+      
+      // המשך האנימציה לאחר השהייה
+      scrollTimeout = setTimeout(() => {
         isPaused = false;
-      }, 3000); // המשך אנימציה אחרי 3 שניות של חוסר פעילות
+        isManualScrolling = false;
+      }, 6000); // המשך אנימציה אחרי 6 שניות של חוסר פעילות
     };
     
-    // מאזיני אירועים
+    // זיהוי גלילה ידנית
+    const handleScroll = () => {
+      // בדיקה אם הגלילה הידנית משמעותית
+      if (Math.abs(scrollContainer.scrollLeft - lastScrollPosition) > 2) {
+        isManualScrolling = true;
+        isPaused = true;
+        clearTimeout(scrollTimeout);
+        
+        scrollTimeout = setTimeout(() => {
+          // עדכון מיקום הגלילה לאחר שהמשתמש סיים לגלול
+          scrollAmount = scrollContainer.scrollLeft;
+          isPaused = false;
+          isManualScrolling = false;
+        }, 6000); // חידוש אנימציה לאחר 6 שניות ללא גלילה
+      }
+      
+      lastScrollPosition = scrollContainer.scrollLeft;
+    };
+    
+    // רישום מאזיני אירועים לזיהוי אינטראקציות משתמש
     scrollContainer.addEventListener('mousedown', pauseAnimation);
     scrollContainer.addEventListener('touchstart', pauseAnimation);
-    scrollContainer.addEventListener('wheel', pauseAnimation);
+    scrollContainer.addEventListener('scroll', handleScroll, { passive: true });
     document.addEventListener('mouseup', resumeAnimation);
     document.addEventListener('touchend', resumeAnimation);
     
+    // ניקוי מאזיני אירועים בעת פירוק הקומפוננטה
     return () => {
       if (animationId) {
         cancelAnimationFrame(animationId);
       }
       
-      // הסרת מאזיני אירועים
+      clearTimeout(scrollTimeout);
+      
       if (scrollContainer) {
         scrollContainer.removeEventListener('mousedown', pauseAnimation);
         scrollContainer.removeEventListener('touchstart', pauseAnimation);
-        scrollContainer.removeEventListener('wheel', pauseAnimation);
+        scrollContainer.removeEventListener('scroll', handleScroll);
       }
       document.removeEventListener('mouseup', resumeAnimation);
       document.removeEventListener('touchend', resumeAnimation);
