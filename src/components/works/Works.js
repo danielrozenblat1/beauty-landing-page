@@ -25,11 +25,12 @@ import lorinNakash from "../../images/לורין נקש.png"
 import anastasiaTalan from "../../images/אנסטסיה טלן חכים.png"
 import sharonSror from "../../images/שרון סרור.png"
 import aviaHarshish from "../../images/אביה הרשיש.png"
-
+import sivanGross from "../../images/סיון גרוס.png"
 const Works = () => {
   const worksData = [
     { title: "אנה גרקוב", description: "איפור קבוע - קורסים וטיפולים", src: annagrekov, href: "https://annagrekov.co.il" },
     { title: "אביה הרשיש", description: "אדריכלית", src: aviaHarshish, href: "https://avia-arch.co.il" },
+     { title: "סיון גרוס", description: "מעצבת פנים", src: sivanGross, href: "https://sivan-gross.vercel.app" },
     { title: "אנסטסיה טלן", description: "איפור כלות | השתלמויות | קורס דיגיטלי", src: anastasiaTalan, href: "https://anastasiatalanhakim.co.il" },
     { title: "סוזנה פנחסי", description: "קורסים בתחום הביוטי", src: suzanapinhasi, href: "https://suzanapinhasi.co.il" },
     { title: "שרון סרור", description: "איפור כלות | השתלמויות למאפרות", src: sharonSror, href: "https://sharonsror.co.il" },
