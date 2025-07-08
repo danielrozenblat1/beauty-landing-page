@@ -175,6 +175,13 @@
   box-sizing: border-box;
 }
 
+/* סגנון שדות מושבתים */
+.input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: rgba(255, 255, 255, 0.5);
+}
+
 .input::placeholder {
   color: rgba(107, 61, 178, 0.5);
   transition: color 0.25s ease;
@@ -212,7 +219,42 @@
   box-sizing: border-box;
 }
 
-.submitButton:hover {
+/* סגנון כפתור בזמן טעינה */
+.submitButton.loading {
+  cursor: not-allowed;
+  opacity: 0.8;
+  background: linear-gradient(to bottom, #9b7ae0, #8966c4);
+  animation: loading-pulse 1.5s infinite;
+}
+
+.submitButton.loading::before {
+  animation: none;
+}
+
+/* אנימציה לכפתור בזמן טעינה */
+@keyframes loading-pulse {
+  0% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.01);
+  }
+  100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+}
+
+/* כפתור במצב מושבת */
+.submitButton:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* עבור כפתור רגיל (לא בטעינה) */
+.submitButton:not(.loading):hover {
   transform: translateY(-2px);
   background: linear-gradient(to bottom, #8a5de0, #7849c4);
   box-shadow: 
@@ -220,13 +262,13 @@
       inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
-.submitButton:active {
+.submitButton:not(.loading):active {
   transform: translateY(0);
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 /* אפקט ברק עדין לכפתור */
-.submitButton::before {
+.submitButton:not(.loading)::before {
   content: '';
   position: absolute;
   top: 0;
@@ -241,7 +283,7 @@
   transition: all 0.8s ease;
 }
 
-.submitButton:hover::before {
+.submitButton:not(.loading):hover::before {
   transform: translateX(100%) skewX(-15deg);
 }
 

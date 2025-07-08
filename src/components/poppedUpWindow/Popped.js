@@ -7,6 +7,7 @@ const Popped = () => {
   const navigate = useNavigate();
   const [opened, setOpened] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   
   // State management like in FormScreen
   const [formData, setFormData] = useState({
@@ -21,7 +22,7 @@ const Popped = () => {
   const reasonRef = useRef(null);
   
   // URL שאליו נשלח את הליד - using the same as in FormScreen
-  const serverUrl = "https://dynamic-server-dfc88e1f1c54.herokuapp.com/leads/newLead";
+  const serverUrl = "https://dynamic-server-dfc88e1f1c54.herokuapp.com/leads/newLeadDaniel";
   const reciver = "danielroz12345@gmail.com";
 
   const handleToggle = () => {
@@ -57,11 +58,13 @@ const Popped = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
+    // מניעת שליחה נוספת אם כבר בתהליך
+    if (isLoading) return;
+    
     const name = nameRef?.current?.value;
     const phone = phoneRef?.current?.value;
     const reason = reasonRef?.current?.value;
 
- 
     // Validation logic from FormScreen
     if(name.trim().length <= 2){
       alert("אנא הכנס שם מלא");
@@ -77,6 +80,9 @@ const Popped = () => {
       alert("אנא הכנס במה את עוסקת");
       return;
     }
+    
+    // הפעלת מצב טעינה
+    setIsLoading(true);
     
     // Prepare data for submission - using same structure as FormScreen
     const serverData = {
@@ -126,6 +132,9 @@ const Popped = () => {
     } catch (error) {
       console.error("❌ שגיאה:", error);
       alert("התרחשה שגיאה, אנא נסה שוב מאוחר יותר");
+    } finally {
+      // סיום מצב טעינה
+      setIsLoading(false);
     }
   };
 
@@ -140,9 +149,6 @@ const Popped = () => {
               <div className={styles.formDecor + " " + styles.topLeft}></div>
               <div className={styles.formDecor + " " + styles.bottomRight}></div>
               
-        
-
-              
               <p className={styles.formSubtitle}>תשאירי פרטים ונחזור אלייך בהקדם</p>
               
               <form className={styles.form} onSubmit={handleSubmit}>
@@ -156,6 +162,7 @@ const Popped = () => {
                     className={styles.input} 
                     ref={nameRef}
                     required 
+                    disabled={isLoading}
                   />
                 </div>
                 
@@ -169,6 +176,7 @@ const Popped = () => {
                     className={styles.input} 
                     ref={phoneRef}
                     required 
+                    disabled={isLoading}
                   />
                 </div>
                 
@@ -182,11 +190,16 @@ const Popped = () => {
                     className={styles.input} 
                     ref={reasonRef}
                     required 
+                    disabled={isLoading}
                   />
                 </div>
                 
-                <button type="submit" className={styles.submitButton}>
-                  דניאל, בוא נדבר!
+                <button 
+                  type="submit" 
+                  className={`${styles.submitButton} ${isLoading ? styles.loading : ''}`}
+                  disabled={isLoading}
+                >
+                  {isLoading ? "הפרטים נשלחו.. כמה שניות" : "דניאל, בוא נדבר!"}
                 </button>
                 <p className={styles.limitedNotice}>* מספר המקומות בחודש מוגבל *</p>
               </form>
