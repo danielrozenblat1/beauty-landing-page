@@ -27,15 +27,20 @@ import sharonSror from "../../images/שרון סרור.png"
 import aviaHarshish from "../../images/אביה הרשיש.png"
 import sivanGross from "../../images/סיון גרוס.png"
 import royshmuel from "../../images/רועי שמואל.png"
+import iditBazak from "../../images/עידית בזק.png"
+import haniHemo from "../../images/חני חמו.png"
 const Works = () => {
   const worksData = [
         { title: "רועי שמואל", description: "אדריכל ומעצב פנים", src:  royshmuel, href: "https://consilium.vercel.app/" },
     { title: "אנה גרקוב", description: "איפור קבוע - קורסים וטיפולים", src: annagrekov, href: "https://annagrekov.co.il" },
-     
-    { title: "אביה הרשיש", description: "אדריכלית", src: aviaHarshish, href: "https://avia-arch.co.il" },
-     { title: "סיון גרוס", description: "מעצבת פנים", src: sivanGross, href: "https://sivan-gross.vercel.app" },
+      { title: "חני חמו", description: "מעצבת פנים", src: haniHemo, href: "https://hanihemo.co.il" },
+   
+      { title: "עידית בזק", description: "קורסים למטפלות פנים | טיפולי פנים", src: iditBazak, href: "https://iditbazak-facecare.co.il" },
+   
+ { title: "אביה הרשיש", description: "אדריכלית", src: aviaHarshish, href: "https://avia-arch.co.il" },
+     { title: "סוזנה פנחסי", description: "קורסים בתחום הביוטי", src: suzanapinhasi, href: "https://suzanapinhasi.co.il" },
+   { title: "סיון גרוס", description: "מעצבת פנים", src: sivanGross, href: "https://sivan-gross.vercel.app" },
 
-    { title: "סוזנה פנחסי", description: "קורסים בתחום הביוטי", src: suzanapinhasi, href: "https://suzanapinhasi.co.il" },
     { title: "שרון סרור", description: "איפור כלות | השתלמויות למאפרות", src: sharonSror, href: "https://sharonsror.co.il" },
     { title: "שיראל זגורי", description: "יוגה לילדים", src: shirelzagury, href: "https://yoga-with-shirel.co.il" },
     { title: "שיר עדי", description: "קורס להחלקות שיער", src: shiradi, href: "https://shiradiacademy.co.il" },
@@ -43,14 +48,14 @@ const Works = () => {
  
     { title: "ספיר דיין", description: "מאפרת מקצועית", src: sapirDayan, href: "https://sapirdayanmakeup.co.il" },
    
-    { title: "שרה אנניה", description: "מומחית לאיפור כלות וערב", src: saraAnanya, href: "https://saraananya.co.il" },
+   
     { title: "מאי ליין", description: "לימודי ציפורניים וגבות", src: mayLine, href: "https://mayline.co.il" },
     { title: "ניקול ולרי", description: "מומחית ביוטי", src: nikol, href: "https://nikolvalerie.co.il" },
     { title: "לורין נקש", description: "מומחית ללימודי ציפורניים", src: lorinNakash, href: "https://lorinnakash.co.il" },
-    { title: "אוריאן חממי", description: "סלון ביוטי", src: orianHamami, href: "https://orianhamami.co.il" },
+
     { title: "ענבל רוזנפלד", description: "אקדמיה ללימוד ציפורניים", src: inbalRozenfeld, href: "https://inbalrozenfeld.co.il" },
     { title: "מירב בישולים", description: "בישולים בייתיים", src: meravishulim, href: "https://Meravbishulim.co.il" },
-    { title: "VLR", description: "צילום,ניהול סושיאל וUGC", src: valeriaRemidovski, href: "https://valeriaremydovsky.co.il" },
+   
     { title: "Lance", description: "קייטרינג לאירועים", src: lance, href: "https://lancebuffet.co.il" },
     { title: "שובל דעבול", description: "נומורולוגיה וריפוי דרך התת מודע", src: shoval, href: "https://shovaldabol.co.il" },
     // כפילת העבודות הראשונות לאפקט אינסופי
