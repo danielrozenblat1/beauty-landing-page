@@ -10,7 +10,8 @@ const FormScreen = (props) => {
   const [formData, setFormData] = useState({
     fullName: "",
     phone: "",
-    occupation: ""
+    occupation: "",
+    agreeToTerms: false
   });
 
   const nameRef = useRef(null);
@@ -22,10 +23,10 @@ const FormScreen = (props) => {
   const reciver = "danielroz12345@gmail.com";
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value, type, checked } = e.target;
     setFormData(prev => ({
       ...prev,
-      [name]: value
+      [name]: type === 'checkbox' ? checked : value
     }));
   };
 
@@ -51,6 +52,12 @@ const FormScreen = (props) => {
 
     if (reason.trim().length <= 2) {
       alert("אנא הכנס במה את עוסקת");
+      return;
+    }
+
+    // בדיקת checkbox
+    if (!formData.agreeToTerms) {
+      alert("יש לאשר את תקנון האתר כדי להמשיך");
       return;
     }
 
@@ -87,7 +94,8 @@ const FormScreen = (props) => {
         setFormData({
           fullName: "",
           phone: "",
-          occupation: ""
+          occupation: "",
+          agreeToTerms: false
         });
 
         setSubmitted(true);
@@ -155,6 +163,22 @@ const FormScreen = (props) => {
                 required
                 disabled={isLoading}
               />
+            </div>
+
+            <div className={styles.checkboxGroup}>
+              <label className={styles.checkboxLabel}>
+                <input
+                  type="checkbox"
+                  name="agreeToTerms"
+                  checked={formData.agreeToTerms}
+                  onChange={handleChange}
+                  className={styles.checkbox}
+                  disabled={isLoading}
+                />
+                <span className={styles.checkboxText}>
+                  קראתי ואני מאשר/ת את <a href="/תקנון" className={styles.termsLink} target="_blank" rel="noopener noreferrer">תקנון האתר</a>
+                </span>
+              </label>
             </div>
 
             <button 

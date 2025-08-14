@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Me.module.css';
-import daniel from "../images/דניאל.png";
-
+import Lottie from '@lottielab/lottie-player/react';
+import daniel from "../images/דניאל תדמית.png"
 import Works from '../components/recommends/Works';
 import FormScreen from '../components/formScreen/FormScreen';
 
@@ -11,7 +11,7 @@ const AboutMe = () => {
       <div className={styles.header} id="מי אני">אזזזז.. מי אני?</div>
       <div className={styles.container}>
         <div className={styles.imageContainer}>
-          <img src={daniel} alt="דניאל רוזנבלט" className={styles.image} />
+  <img className={styles.image} src={daniel}/>
         </div>
         <div className={styles.content}>
           <h1 className={styles.title}>דניאל רוזנבלט</h1>

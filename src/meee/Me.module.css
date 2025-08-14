@@ -39,7 +39,7 @@
 
 .imageContainer {
   flex: 1;
-  padding-left: 40px; /* הגדלתי את המרחק מ-20px ל-40px */
+  
   position: relative;
   box-sizing: border-box;
   text-align: center;

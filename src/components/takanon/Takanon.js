@@ -1,4 +1,3 @@
-
 import { NavLink, useNavigate } from 'react-router-dom';
 import styles from './Takanon.module.css';
 
@@ -89,6 +88,36 @@ const Takanon = () => {
         <p className={styles.sentence}>במסגרת תהליך העבודה - מרגע סיום הסקיצה הראשונית - הלקוח מקבל זמן מוקצב לשינויים ותיקונים חינמים שבו הוא אוסף את כל השינויים והתיקונים שעולים לו מהסקיצה - לאחר מכן מתבצע סשן מרוכז של תיקונים ושיוניים ובסיום הסשן - הדף יעלה לאויר ושינויים נוספים יתומחרו לפי שעת עבודה</p>
         <p className={styles.sentence}>כל השינויים והתחזוקה של העמוד מתבצעת ע''י בונה הדף וללקוח אין גישה לקוד באף נקודת זמן לאורך התהליך</p>
         <p className={styles.sentence}>השינויים כוללים מלל,צבעים ותמונות</p>
+      </section>
+
+      <section className={styles.section}>
+        <h2 className={styles.subHeader}>מדיניות פרטיות:</h2>
+        <p className={styles.sentence}>אנו מכבדים את פרטיותכם ומתחייבים לשמור על המידע האישי שלכם.</p>
+        
+        <h3 className={styles.subHeader}>איסוף מידע:</h3>
+        <p className={styles.sentence}>אנו אוספים מידע אישי שאתם מספקים לנו באופן וולנטרי באמצעות טפסי יצירת קשר ולידים באתר, כגון: שם, כתובת אימייל, מספר טלפון והודעות שאתם שולחים אלינו.</p>
+        
+        <h3 className={styles.subHeader}>שימוש במידע:</h3>
+        <p className={styles.sentence}>אנו משתמשים במידע שאתם מספקים למטרות הבאות: יצירת קשר איתכם לפי בקשתכם, מתן מידע על שירותינו, טיפול בפניותיכם ושיפור השירות.</p>
+        
+        <h3 className={styles.subHeader}>Google Analytics:</h3>
+        <p className={styles.sentence}>האתר משתמש ב-Google Analytics לצורך ניתוח ושיפור חווית המשתמש. Google Analytics אוסף מידע אנונימי על התנהגות המשתמשים באתר, לרבות דפים שנצפו, זמן שהייה ונתוני גלישה נוספים.</p>
+        <p className={styles.sentence}>המידע שנאסף על ידי Google Analytics אינו מזהה אותכם אישית. לפרטים נוספים על מדיניות הפרטיות של גוגל, בקרו בכתובת: https://policies.google.com/privacy</p>
+        
+        <h3 className={styles.subHeader}>שמירה על המידע:</h3>
+        <p className={styles.sentence}>אנו נוקטים באמצעי זהירות סבירים כדי להגן על המידע האישי שלכם מפני גישה לא מורשית, שינוי, גילוי או השמדה.</p>
+        
+        <h3 className={styles.subHeader}>העברת מידע לצדדים שלישיים:</h3>
+        <p className={styles.sentence}>אנו לא מוכרים, משתפים או מעבירים את המידע האישי שלכם לצדדים שלישיים, פרט למקרים הנדרשים על פי חוק.</p>
+        
+        <h3 className={styles.subHeader}>זכויות המשתמש:</h3>
+        <p className={styles.sentence}>יש לכם הזכות לדעת איזה מידע אישי אנו מחזיקים עליכם, לבקש עדכון או מחיקה של המידע, ולהתנגד לעיבוד המידע לצרכים מסוימים.</p>
+        
+        <h3 className={styles.subHeader}>עדכון מדיניות הפרטיות:</h3>
+        <p className={styles.sentence}>אנו שומרים לעצמנו את הזכות לעדכן מדיניות פרטיות זו מעת לעת. שינויים יפורסמו באתר ויכנסו לתוקף מיד עם פרסומם.</p>
+        
+        <h3 className={styles.subHeader}>יצירת קשר:</h3>
+        <p className={styles.sentence}>לשאלות או בקשות בנושא מדיניות הפרטיות, ניתן לפנות אלינו באמצעות פרטי ההתקשרות באתר.</p>
       </section>
 
       <section className={styles.section}>
