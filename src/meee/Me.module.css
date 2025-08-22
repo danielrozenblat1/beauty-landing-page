@@ -638,6 +638,8 @@
   
   .imageContainer {
     width: 95%;
+    object-fit: contain;
+    height: auto;
   }
   
   .content {
