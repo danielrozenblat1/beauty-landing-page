@@ -29,6 +29,7 @@ import sivanGross from "../../images/סיון גרוס.png"
 import royshmuel from "../../images/רועי שמואל.png"
 import iditBazak from "../../images/עידית בזק.png"
 import haniHemo from "../../images/חני חמו.png"
+import eclipseMedia from "../../images/אקליפס מדיה.png"
 const Works = () => {
   const worksData = [
         { title: "רועי שמואל", description: "אדריכל ומעצב פנים", src:  royshmuel, href: "https://consilium.vercel.app/" },
@@ -38,12 +39,14 @@ const Works = () => {
       { title: "עידית בזק", description: "קורסים למטפלות פנים | טיפולי פנים", src: iditBazak, href: "https://iditbazak-facecare.co.il" },
    
  { title: "אביה הרשיש", description: "אדריכלית", src: aviaHarshish, href: "https://avia-arch.co.il" },
+  { title: "אקליפס מדיה", description: "חברת צילום | עמדות צילום ללינקדין", src: eclipseMedia, href: "https://eclipse-media.vercel.app" },
      { title: "סוזנה פנחסי", description: "קורסים בתחום הביוטי", src: suzanapinhasi, href: "https://suzanapinhasi.co.il" },
    { title: "סיון גרוס", description: "מעצבת פנים", src: sivanGross, href: "https://sivan-gross.vercel.app" },
 
     { title: "שרון סרור", description: "איפור כלות | השתלמויות למאפרות", src: sharonSror, href: "https://sharonsror.co.il" },
+      { title: "שיר עדי", description: "קורס להחלקות שיער", src: shiradi, href: "https://shiradiacademy.co.il" },
     { title: "שיראל זגורי", description: "יוגה לילדים", src: shirelzagury, href: "https://yoga-with-shirel.co.il" },
-    { title: "שיר עדי", description: "קורס להחלקות שיער", src: shiradi, href: "https://shiradiacademy.co.il" },
+  
     { title: "מור עזרא", description: "טיפולי איפור קבוע ומיקרופיגמנטציה", src: morezra, href: "https://morezra.co.il" },
  
     { title: "ספיר דיין", description: "מאפרת מקצועית", src: sapirDayan, href: "https://sapirdayanmakeup.co.il" },
