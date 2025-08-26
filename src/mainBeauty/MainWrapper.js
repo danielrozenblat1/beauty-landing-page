@@ -9,6 +9,7 @@ import Popped from '../components/poppedUpWindow/Popped';
 import FifthScreen from '../screens/FifthScreen';
 import SixthScreen from '../screens/SixthScreen';
 import NavBarNew from '../components/CourseNav/NavBarNew';
+import FloatingWhatsAppButton from '../components/FloatingButton/FloatingButton';
 
 const MainWrapper=()=>{
 
@@ -24,6 +25,7 @@ return <>
 
 <Popped/>
 <FifthScreen/>
+<FloatingWhatsAppButton/>
 </>
 
 }
