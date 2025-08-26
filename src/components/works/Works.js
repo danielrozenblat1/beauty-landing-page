@@ -30,6 +30,7 @@ import royshmuel from "../../images/רועי שמואל.png"
 import iditBazak from "../../images/עידית בזק.png"
 import haniHemo from "../../images/חני חמו.png"
 import eclipseMedia from "../../images/אקליפס מדיה.png"
+import sheliMeir from "../../images/שלי מאיר.png"
 const Works = () => {
   const worksData = [
         { title: "רועי שמואל", description: "אדריכל ומעצב פנים", src:  royshmuel, href: "https://consilium.vercel.app/" },
@@ -40,6 +41,7 @@ const Works = () => {
    
  { title: "אביה הרשיש", description: "אדריכלית", src: aviaHarshish, href: "https://avia-arch.co.il" },
   { title: "אקליפס מדיה", description: "חברת צילום | עמדות צילום ללינקדין", src: eclipseMedia, href: "https://eclipse-media.vercel.app" },
+        { title: "שלי מאיר", description: "אקדמיה לאיפור קבוע | טיפולי איפור קבוע", src: sheliMeir, href: "https://shelimeir-academy.co.il" },
      { title: "סוזנה פנחסי", description: "קורסים בתחום הביוטי", src: suzanapinhasi, href: "https://suzanapinhasi.co.il" },
    { title: "סיון גרוס", description: "מעצבת פנים", src: sivanGross, href: "https://sivan-gross.vercel.app" },
 
