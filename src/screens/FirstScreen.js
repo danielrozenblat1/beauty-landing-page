@@ -135,8 +135,8 @@ const FirstScreen = () => {
             {/* Intro Header with Purple Background */}
             <div className={`${styles.introHeader} ${styles.fadeInElement}`}>
                 <div className={styles.introText}>
-                    <h3 className={styles.introTitle}>לאחר שליווה מאות עצמאיות ב+40 תחומים</h3>
-                    <p className={styles.introDescription}>דניאל רוזנבלט מציג:</p>
+                    {/* <h3 className={styles.introTitle}>לאחר שליווה מאות עצמאיות ב+40 תחומים</h3> */}
+                    <p className={styles.introDescription}>במיוחד עבור בעלי עסקים שרוצים לתמחר את השירות שלהם במחירים גבוהים ובאופן קבוע בלי לרדוף אחרי המתעניינים</p>
                 </div>
             </div>
             

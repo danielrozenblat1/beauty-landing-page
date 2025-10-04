@@ -120,7 +120,7 @@ const FormScreen = (props) => {
           <div className={styles.formDecor + " " + styles.topLeft}></div>
           <div className={styles.formDecor + " " + styles.bottomRight}></div>
 
-          <p className={styles.formSubtitle}>תשאירי פרטים ונחזור אלייך בהקדם</p>
+          <p className={styles.formSubtitle}>תשאירי פרטים לשיחת התאמה ללא עלות</p>
 
           <form className={styles.form} onSubmit={handleSubmit}>
             <div className={styles.inputGroup}>
