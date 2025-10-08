@@ -5,11 +5,11 @@ import Button from '../button/Button';
 // Import images from the first list (skipping videos)
 import result1 from "../../images/שובל דעבול חוות דעת.png";
 import result3 from "../../images/חוות דעת דניאל טורייב.png";
-import result4 from "../../images/ניקול ולארי חוות דעת.png";
-import result5 from "../../images/לירון רוקח חוות דעת.png";
-import result7 from "../../images/ניר בן דוד חוות דעת.png";
+
+
+
 import result8 from "../../images/ולריה רמידובסקי חוות דעת.png";
-import result9 from "../../images/נאור לוי חוות דעת.png";
+
 import result10 from "../../images/מיכל אבנד חוות דעת.png";
 import result11 from "../../images/עדי ממן חוות דעת.png";
 import result12 from "../../images/ספיר דיין חוות דעת.png";
@@ -22,7 +22,7 @@ import result21 from "../../images/מאי סויסה חוות דעת.png";
 import result22 from "../../images/לורין נקש חוות דעת.png";
 import result23 from "../../images/שרון סרור חוות דעת.png";
 import result24 from "../../images/גרטה מור חוות דעת.png";
-import result25 from "../../images/סתיו יעקובי חוות דעת.png";
+
 import result26 from "../../images/אנסטסיה טלן חוות דעת.png";
 import result27 from "../../images/סוזנה חוות דעת.png";
 import result28 from "../../images/לריאן חוות דעת.png";
@@ -34,14 +34,23 @@ import result33 from "../../images/שמחה לוי המלצה.png";
 import result34 from "../../images/שיר עדי המלצה.png";
 import result35 from "../../images/חן ושי המלצה.png";
 import result36 from "../../images/שיראל זגורי המלצה.png";
-
+import result37 from "../../images/חני חמו המלצה.png";
+import result38 from "../../images/זיו דנינו המלצה.png";
+import result39 from "../../images/רועי שמואל המלצה.png";
+import result40 from "../../images/ליגל גרבי המלצה.png";
+import result41 from "../../images/שלי מאיר המלצה.png";
+import result42 from "../../images/מיטל גלעד המלצה.png";
+import result43 from "../../images/קרן ראובן המלצה.png";
+import result44 from "../../images/סילביה מור המלצה 2.png";
+import result45 from "../../images/אורלי דבי המלצה.png";
+import result46 from "../../images/עידית בזק המלצה.png";
 const Recommends = () => {
   const scrollContainerRef = useRef(null);
   
   const images = [
-    result26, result27, result33, result34, result35, result36, result28, result29, result30, result31, result32, result4, result5, result7, result8, 
-    result9, result10, result11, result12, result14, result15, result16, 
-    result17, result18, result21, result22, result23, result24, result25, 
+  result46, result36, result28, result29,  result34,result37, result35, result40, result38, result26, result27,  result39,result30, result31, , result41, result42, result43, result44,result32, result8, 
+  result10, result11, result12, result14, result45,  result15, result16,result33,  
+    result17, result18, result21, result22, result23, result24,
     result1,
   ];
 

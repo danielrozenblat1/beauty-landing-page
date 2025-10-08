@@ -52,8 +52,8 @@ const AboutMe = () => {
       <div className={styles.sectionContainer}>
         <h2 className={styles.sectionTitle}>ממני שמעת מספיק - תשמעי קצת מהן (הן לא משוחדות)</h2>
       </div>
-      <p className={styles.description}>
- <span className={styles.bold}>(תחליקי לצדדים)</span>
+      <p className={styles.description} style={{textAlign:"center", display:"flex", margin:"0 auto"}}>
+ <span className={styles.bold}style={{textAlign:"center", display:"flex", margin:"0 auto"}} >(תחליקי לצדדים)</span>
           </p>
       <Works/>
      <FormScreen/>
