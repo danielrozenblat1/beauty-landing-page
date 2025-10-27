@@ -6,12 +6,10 @@
     width: 100%;
     direction: rtl;
     padding: 0 0 2rem;
-
-    overflow: hidden; /* מונע גלישה של אנימציות */
-    position: relative; /* עבור הגרדיאנט המרחף */
+    overflow: hidden;
+    position: relative;
 }
 
-/* גרדיאנט אינטראקטיבי ברקע */
 .gradientBackground {
     position: absolute;
     top: 0;
@@ -23,7 +21,6 @@
     transition: background 0.3s ease;
 }
 
-/* =========== Intro Header with Purple Background - NEW =========== */
 .introHeader {
     width: 100%;
     background: linear-gradient(135deg, #4b2a82, #6b3db2);
@@ -74,6 +71,7 @@
     padding: 0 1rem;
     z-index: 1;
 }
+
 .description {
     font-family: "OpenSansR", sans-serif;
     font-size: 1.4rem;
@@ -91,6 +89,7 @@
     padding: 0 1rem;
     z-index: 1;
 }
+
 .bold {
     font-weight: 800;
     display: inline-block;
@@ -119,7 +118,6 @@
     box-shadow: 0 1px 3px rgba(147, 97, 255, 0.4);
 }
 
-/* =========== Hero Image - NEW with Parallax =========== */
 .heroImageContainer {
     width: 60%;
     max-width: 600px;
@@ -139,7 +137,6 @@
     transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-/* =========== Benefits Section ========== */
 .benefitsWrapper {
     width: 100%;
     max-width: 1000px;
@@ -151,7 +148,6 @@
     z-index: 1;
 }
 
-/* אפקט רקע מיוחד */
 .benefitsWrapper::before {
     content: '';
     position: absolute;
@@ -170,7 +166,6 @@
     pointer-events: none;
 }
 
-/* שינוי מסקרול לגריד */
 .benefitsContainer {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -181,7 +176,6 @@
     z-index: 1;
 }
 
-/* פריט יתרון בעיצוב משופר */
 .benefitItem {
     display: flex;
     flex-direction: column;
@@ -200,7 +194,6 @@
     z-index: 1;
 }
 
-/* אנימציית ריחוף בהובר */
 .benefitItem:hover {
     transform: translateY(-6px) scale(1.02);
     box-shadow: 0 12px 28px rgba(107, 61, 178, 0.18);
@@ -208,7 +201,6 @@
     z-index: 5;
 }
 
-/* פריסת צל מיוחדת בהובר */
 .benefitItem:hover::before {
     content: '';
     position: absolute;
@@ -226,7 +218,6 @@
     z-index: -1;
 }
 
-/* אפקט זוהר מיוחד בהובר */
 .benefitItem:hover::after {
     content: '';
     position: absolute;
@@ -258,7 +249,6 @@
     }
 }
 
-/* מעטפת לאייקון - משופרת */
 .benefitIconWrapper {
     display: flex;
     align-items: center;
@@ -274,13 +264,11 @@
     transition: all 0.5s ease;
 }
 
-/* אנימציית אייקון בהובר */
 .benefitItem:hover .benefitIconWrapper {
     transform: translateY(-3px) scale(1.1);
     box-shadow: 0 8px 25px rgba(107, 61, 178, 0.2);
 }
 
-/* אפקט אור סביב האייקון בהובר */
 .benefitItem:hover .benefitIconWrapper::after {
     content: '';
     position: absolute;
@@ -300,7 +288,6 @@
     100% { transform: scale(1); opacity: 0.5; }
 }
 
-/* טקסט היתרון - משופר */
 .benefitText {
     font-family: "OpenSansR", sans-serif;
     font-size: 1.1rem;
@@ -314,14 +301,12 @@
     transition: all 0.3s ease;
 }
 
-/* שינוי טקסט בהובר */
 .benefitItem:hover .benefitText {
     color: #6b3db2;
     transform: scale(1.03);
     text-shadow: 0 2px 8px rgba(107, 61, 178, 0.15);
 }
 
-/* אינדיקטור גלילה - נשאר רק במובייל */
 .scrollIndicator {
     display: flex;
     gap: 0.5rem;
@@ -341,7 +326,6 @@
     transform: scale(1.2);
 }
 
-/* אנימציית פעימה לאייקונים */
 .icon {
     animation: pulse 2s infinite ease-in-out;
     transition: transform 0.3s ease-in-out;
@@ -353,7 +337,6 @@
     100% { transform: scale(1); }
 }
 
-/* =========== אפקט Fade-In מדורג - חדש =========== */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -377,7 +360,6 @@
 .benefitItem:nth-child(2).fadeInElement { animation-delay: 1.3s; }
 .benefitItem:nth-child(3).fadeInElement { animation-delay: 1.5s; }
 
-/* =========== כפתור CTA עם פעימה - חדש =========== */
 .ctaButton {
     position: relative;
     padding: 16px 32px;
@@ -390,7 +372,8 @@
     border-radius: 50px;
     cursor: pointer;
     box-shadow: 0 6px 12px rgba(107, 61, 178, 0.2);
-    margin: 1rem 0 2rem;
+    margin: 2rem auto;
+    display: block;
     transition: all 0.3s ease;
     overflow: hidden;
     z-index: 2;
@@ -408,7 +391,6 @@
     box-shadow: 0 4px 8px rgba(107, 61, 178, 0.15);
 }
 
-/* אפקט פעימה לכפתור */
 .ctaButton::after {
     content: '';
     position: absolute;
@@ -438,7 +420,6 @@
     }
 }
 
-/* אפקט אור בהובר */
 .ctaButton::before {
     content: '';
     position: absolute;
@@ -460,9 +441,91 @@
     left: 100%;
 }
 
-/* =========== מדיה קוורי מותאמים =========== */
+/* כפתור יצירת קשר - בסגנון ה-Showcase */
+.contactButton {
+    font-family: 'OpenSans', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    padding: 18px 45px;
+    background: rgba(75, 42, 130, 0.75);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    color: white;
+    border: 1.5px solid rgba(147, 97, 255, 0.4);
+    border-radius: 18px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 
+        0 8px 20px rgba(75, 42, 130, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    margin: 2.5rem auto;
+    display: block;
+    z-index: 2;
+}
 
-/* טאבלט */
+.contactButton::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.25),
+        transparent
+    );
+    transition: left 0.6s ease;
+}
+
+.contactButton::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(147, 97, 255, 0.2) 0%,
+        transparent 50%,
+        rgba(107, 61, 178, 0.2) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.contactButton:hover::before {
+    left: 100%;
+}
+
+.contactButton:hover::after {
+    opacity: 1;
+}
+
+.contactButton:hover {
+    transform: translateY(-3px);
+    background: rgba(91, 52, 153, 0.85);
+    border-color: rgba(147, 97, 255, 0.6);
+    box-shadow: 
+        0 12px 30px rgba(75, 42, 130, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+}
+
+.contactButton:active {
+    transform: translateY(-1px);
+    box-shadow: 
+        0 6px 15px rgba(75, 42, 130, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+}
+
 @media (max-width: 900px) {
     .introTitle {
         font-size: 1.6rem;
@@ -488,9 +551,14 @@
         font-size: 1.1rem;
         padding: 14px 28px;
     }
+
+    .contactButton {
+        font-size: 1.2rem;
+        padding: 16px 38px;
+        border-radius: 16px;
+    }
 }
 
-/* מובייל - שינוי לגריד מותאם */
 @media (max-width: 768px) {
     .introTitle {
         font-size: 1.4rem;
@@ -541,9 +609,14 @@
         font-size: 1rem;
         padding: 12px 24px;
     }
+
+    .contactButton {
+        font-size: 1.1rem;
+        padding: 15px 32px;
+        border-radius: 15px;
+    }
 }
 
-/* מובייל קטן */
 @media (max-width: 480px) {
     .introTitle {
         font-size: 1.2rem;
@@ -579,5 +652,13 @@
         padding: 10px 20px;
         width: 80%;
         max-width: 300px;
+    }
+
+    .contactButton {
+        font-size: 0.95rem;
+        padding: 14px 28px;
+        border-radius: 14px;
+        width: 85%;
+        max-width: 320px;
     }
 }

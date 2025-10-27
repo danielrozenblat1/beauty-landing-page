@@ -18,7 +18,7 @@
   justify-content: center;
   
   /* אפקט זכוכית עדין בסגול */
-  background: rgba(75, 42, 130, 0.25);
+  background: rgba(75, 42, 130, 0.75);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(75, 42, 130, 0.3);
