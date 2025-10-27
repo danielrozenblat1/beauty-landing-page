@@ -136,7 +136,7 @@ const FirstScreen = () => {
             <div className={`${styles.introHeader} ${styles.fadeInElement}`}>
                 <div className={styles.introText}>
                     {/* <h3 className={styles.introTitle}>לאחר שליווה מאות עצמאיות ב+40 תחומים</h3> */}
-                    <p className={styles.introDescription}>במיוחד עבור בעלי עסקים שרוצים לתמחר את השירות שלהם במחירים גבוהים ובאופן קבוע בלי לרדוף אחרי המתעניינים</p>
+                    <p className={styles.introDescription}>אם את עצמאית בתחום הביוטי ונמאס לך להוריד מחירים, לשמוע “יקר לי” והיומן שלך עדיין לא מלא - הדף הזה בשבילך</p>
                 </div>
             </div>
             
