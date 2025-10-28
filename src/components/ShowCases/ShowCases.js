@@ -25,7 +25,7 @@ const Showcase = ({
   const handleScrollToForm = () => {
     const formElement = document.getElementById('טופס');
     if (formElement) {
-      const elementPosition = formElement.getBoundingClientRect().top + window.pageYOffset;
+      const elementPosition = formElement.getBoundingClientRect().top + window.scrollY;
       const offsetPosition = elementPosition - 100;
       
       window.scrollTo({
@@ -35,17 +35,14 @@ const Showcase = ({
     }
   };
 
-  // בדיקה האם יש שורט או תמונה רגילה
   const isShort = !!youtubeShortId;
 
   return (
     <div className={styles.showcaseContainer} ref={ref}>
       <div className={styles.glassCard}>
-        {/* אלמנטים דקורטיביים */}
         <div className={`${styles.decorElement} ${styles.topLeftDecor}`}></div>
         <div className={`${styles.decorElement} ${styles.bottomRightDecor}`}></div>
 
-        {/* Client Name and Description Section */}
         <div className={styles.clientHeader}>
           <h3 className={styles.clientName}>{clientName}</h3>
           {clientDescription && (
@@ -56,7 +53,6 @@ const Showcase = ({
           )}
         </div>
 
-        {/* Metrics Section */}
         <div className={styles.metricsSection}>
           <div className={styles.metricCard}>
             <div className={styles.metricValue}>
@@ -97,16 +93,16 @@ const Showcase = ({
           </p>
         )}
 
-        {/* Image/Video Section */}
         <div className={styles.imageSection}>
           <div className={isShort ? styles.imageWrapperShort : styles.imageWrapperRegular}>
             {youtubeShortId ? (
               <iframe
                 className={styles.showcaseImageShort}
-                src={`https://www.youtube-nocookie.com/embed/${youtubeShortId}?loop=1&controls=1&rel=0`}
+                src={`https://www.youtube-nocookie.com/embed/${youtubeShortId}?loop=1&controls=1&rel=0&modestbranding=1`}
                 title={clientName}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
+                sandbox="allow-scripts allow-same-origin allow-presentation"
               />
             ) : (
               <img 
@@ -118,7 +114,6 @@ const Showcase = ({
           </div>
         </div>
 
-        {/* כפתור CTA */}
         <div className={styles.ctaSection}>
           <button 
             className={styles.ctaButton}
