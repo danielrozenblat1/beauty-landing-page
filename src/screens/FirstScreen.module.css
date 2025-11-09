@@ -551,7 +551,8 @@
     
     .introDescription {
         font-size: 1.1rem;
-       
+       width:95%;
+       margin:0 auto;
     }
     
     .title {

@@ -8,7 +8,7 @@ import Showcase from "../components/ShowCases/ShowCases";
 import silvi from "../images/סילביה מור שואוקייס.png"
 import natali from "../images/נטלי שוורץ שואוקייס.png"
 
-const ThirdScreen = () => {
+const ThirdScreenDesigners = () => {
     const [showAllShowcases, setShowAllShowcases] = useState(false);
     
     const shortsIds = [
@@ -39,9 +39,9 @@ const ThirdScreen = () => {
         <>
             {/* <div className={`${styles.title} ${styles.fadeInElement}`}>
                 <span className={styles.bold}>לפני הכללל, התוצאות של הלקוחות</span>
-            </div> */}
+            </div>
 
-            {/* <Showcase
+            <Showcase
                 clientName="שלי מאיר"
                 clientDescription="קורסים לאיפור קבוע | טיפולי איפור קבוע"
                 additionalText="שלי פנתה אלי כדי לשים יותר פוקוס על הקורסים שלה וכדי שהתדמית שלה תשקף למתעניינות את השירות שהיא משקיעה בו כל כך.. והתוצאה?"
@@ -138,4 +138,4 @@ const ThirdScreen = () => {
     )
 }
 
-export default ThirdScreen
+export default ThirdScreenDesigners

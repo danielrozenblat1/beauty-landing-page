@@ -8,6 +8,7 @@ import Takanon from './components/takanon/Takanon';
 import Thanks from './thank/Thanks';
 
 import MainWrapper from './mainBeauty/MainWrapper';
+import Designers from './Designers';
 function App() {
 
   
@@ -15,7 +16,7 @@ function App() {
  <Router>
     <Routes>
     <Route path="/" index element={<MainWrapper/>}/>
-
+    <Route path="/מעצבים"  element={<Designers/>}/>
     <Route path="/תקנון"  element={<Takanon/>}/>
 
     <Route path="/תודה"  element={<Thanks/>}/>
