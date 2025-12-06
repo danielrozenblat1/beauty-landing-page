@@ -34,7 +34,7 @@ const Popped = () => {
     // הצגת הטופס לראשונה אחרי 30 שניות
     const initialTimeout = setTimeout(() => {
       setOpened(true);
-    }, 30000);
+    }, 60000);
 
     // הצגת הטופס כל 3 דקות
     const interval = setInterval(() => {

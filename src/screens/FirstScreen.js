@@ -136,13 +136,13 @@ const FirstScreen = () => {
             <div className={`${styles.introHeader} ${styles.fadeInElement}`}>
                 <div className={styles.introText}>
                     {/* <h3 className={styles.introTitle}>לאחר שליווה מאות עצמאיות ב+40 תחומים</h3> */}
-                    <p className={styles.introDescription}>אם את עצמאית בתחום הביוטי ונמאס לך להוריד מחירים, לשמוע “יקר לי” והיומן שלך עדיין לא מלא - הדף הזה בשבילך</p>
+                    <p className={styles.introDescription}>אם את מוצאת את עצמך שוקלת להוריד מחירים רק כדי שמישהי סוף סוף תגיד כן - תעצרי! הדף הזה בשבילך</p>
                 </div>
             </div>
             
             {/* Title */}
             <div className={`${styles.title} ${styles.fadeInElement}`}>
-                דף נחיתה שיעזור לך למלא את היומן שלך <span className={styles.bold}>בכל חודש מחדש</span> ולהצטייר כמותג בתחום שלך
+               דף נחיתה שהופך אותך מ"עוד אחת בתחום"<span className={styles.bold}>למותג עם יומן מלא</span>
             </div>
             
             {/* Hero Image with Parallax */}
