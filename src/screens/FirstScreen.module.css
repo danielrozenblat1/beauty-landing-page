@@ -7,8 +7,8 @@
     direction: rtl;
     padding: 0 0 2rem;
 
-    overflow: hidden; /* מונע גלישה של אנימציות */
-    position: relative; /* עבור הגרדיאנט המרחף */
+    overflow: hidden;
+    position: relative;
 }
 
 /* גרדיאנט אינטראקטיבי ברקע */
@@ -23,7 +23,7 @@
     transition: background 0.3s ease;
 }
 
-/* =========== Intro Header with Purple Background - NEW =========== */
+/* =========== Intro Header with Purple Background =========== */
 .introHeader {
     width: 100%;
     background: linear-gradient(135deg, #4b2a82, #6b3db2);
@@ -74,6 +74,7 @@
     padding: 0 1rem;
     z-index: 1;
 }
+
 .description {
     font-family: "OpenSansR", sans-serif;
     font-size: 1.4rem;
@@ -91,6 +92,7 @@
     padding: 0 1rem;
     z-index: 1;
 }
+
 .bold {
     font-weight: 800;
     display: inline-block;
@@ -119,7 +121,7 @@
     box-shadow: 0 1px 3px rgba(147, 97, 255, 0.4);
 }
 
-/* =========== Hero Image - NEW with Parallax =========== */
+/* =========== Hero Image with Placeholder =========== */
 .heroImageContainer {
     width: 60%;
     max-width: 600px;
@@ -131,12 +133,24 @@
     z-index: 1;
 }
 
+/* Placeholder לשמירת הגודל בזמן טעינה */
+.imagePlaceholder {
+    width: 100%;
+    padding-bottom: 100%; /* יחס 1:1 - שנה לפי יחס התמונה שלך */
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: transparent;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
 .heroImage {
     width: 100%;
     height: auto;
     display: block;
     border-radius: 20px;
-    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.3s ease;
 }
 
 /* =========== Benefits Section ========== */
@@ -151,7 +165,6 @@
     z-index: 1;
 }
 
-/* אפקט רקע מיוחד */
 .benefitsWrapper::before {
     content: '';
     position: absolute;
@@ -170,7 +183,6 @@
     pointer-events: none;
 }
 
-/* שינוי מסקרול לגריד */
 .benefitsContainer {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -181,7 +193,6 @@
     z-index: 1;
 }
 
-/* פריט יתרון בעיצוב משופר */
 .benefitItem {
     display: flex;
     flex-direction: column;
@@ -200,7 +211,6 @@
     z-index: 1;
 }
 
-/* אנימציית ריחוף בהובר */
 .benefitItem:hover {
     transform: translateY(-6px) scale(1.02);
     box-shadow: 0 12px 28px rgba(107, 61, 178, 0.18);
@@ -208,7 +218,6 @@
     z-index: 5;
 }
 
-/* פריסת צל מיוחדת בהובר */
 .benefitItem:hover::before {
     content: '';
     position: absolute;
@@ -226,7 +235,6 @@
     z-index: -1;
 }
 
-/* אפקט זוהר מיוחד בהובר */
 .benefitItem:hover::after {
     content: '';
     position: absolute;
@@ -258,7 +266,6 @@
     }
 }
 
-/* מעטפת לאייקון - משופרת */
 .benefitIconWrapper {
     display: flex;
     align-items: center;
@@ -274,13 +281,11 @@
     transition: all 0.5s ease;
 }
 
-/* אנימציית אייקון בהובר */
 .benefitItem:hover .benefitIconWrapper {
     transform: translateY(-3px) scale(1.1);
     box-shadow: 0 8px 25px rgba(107, 61, 178, 0.2);
 }
 
-/* אפקט אור סביב האייקון בהובר */
 .benefitItem:hover .benefitIconWrapper::after {
     content: '';
     position: absolute;
@@ -300,7 +305,6 @@
     100% { transform: scale(1); opacity: 0.5; }
 }
 
-/* טקסט היתרון - משופר */
 .benefitText {
     font-family: "OpenSansR", sans-serif;
     font-size: 1.1rem;
@@ -314,14 +318,12 @@
     transition: all 0.3s ease;
 }
 
-/* שינוי טקסט בהובר */
 .benefitItem:hover .benefitText {
     color: #6b3db2;
     transform: scale(1.03);
     text-shadow: 0 2px 8px rgba(107, 61, 178, 0.15);
 }
 
-/* אינדיקטור גלילה - נשאר רק במובייל */
 .scrollIndicator {
     display: flex;
     gap: 0.5rem;
@@ -341,7 +343,6 @@
     transform: scale(1.2);
 }
 
-/* אנימציית פעימה לאייקונים */
 .icon {
     animation: pulse 2s infinite ease-in-out;
     transition: transform 0.3s ease-in-out;
@@ -353,31 +354,7 @@
     100% { transform: scale(1); }
 }
 
-/* =========== אפקט Fade-In מדורג - חדש =========== */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.fadeInElement {
-    opacity: 0;
-    animation: fadeInUp 0.8s forwards;
-}
-
-.introHeader.fadeInElement { animation-delay: 0.2s; }
-.title.fadeInElement { animation-delay: 0.5s; }
-.heroImageContainer.fadeInElement { animation-delay: 0.8s; }
-.benefitItem:nth-child(1).fadeInElement { animation-delay: 1.1s; }
-.benefitItem:nth-child(2).fadeInElement { animation-delay: 1.3s; }
-.benefitItem:nth-child(3).fadeInElement { animation-delay: 1.5s; }
-
-/* =========== כפתור CTA עם פעימה - חדש =========== */
+/* =========== כפתור CTA עם פעימה =========== */
 .ctaButton {
     position: relative;
     padding: 16px 32px;
@@ -394,7 +371,6 @@
     transition: all 0.3s ease;
     overflow: hidden;
     z-index: 2;
-    animation-delay: 1.7s;
 }
 
 .ctaButton:hover {
@@ -408,7 +384,6 @@
     box-shadow: 0 4px 8px rgba(107, 61, 178, 0.15);
 }
 
-/* אפקט פעימה לכפתור */
 .ctaButton::after {
     content: '';
     position: absolute;
@@ -438,7 +413,6 @@
     }
 }
 
-/* אפקט אור בהובר */
 .ctaButton::before {
     content: '';
     position: absolute;
@@ -490,7 +464,7 @@
     }
 }
 
-/* מובייל - שינוי לגריד מותאם */
+/* מובייל */
 @media (max-width: 768px) {
     .introTitle {
         font-size: 1.4rem;

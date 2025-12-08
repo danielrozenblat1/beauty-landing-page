@@ -18,6 +18,9 @@ const FirstScreenDesigners = () => {
     // עבור אפקט הפרלקס
     const [offset, setOffset] = useState(0);
     
+    // עבור טעינת התמונה
+    const [imageLoaded, setImageLoaded] = useState(false);
+    
     const handleComplete = () => {
         setTimeout(() => {
             playerRef1?.current?.playFromBeginning();
@@ -55,9 +58,8 @@ const FirstScreenDesigners = () => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
     
-    // אנימציות ScrollReveal
+    // אנימציות ScrollReveal בלבד - ללא כפילויות
     useEffect(() => {
-        // הגדרת אנימציות בסיסיות
         ScrollReveal().reveal(`.${styles.introHeader}`, {
             duration: 1000,
             distance: "30px",
@@ -72,7 +74,7 @@ const FirstScreenDesigners = () => {
         ScrollReveal().reveal(`.${styles.title}`, {
             duration: 1000,
             distance: "30px",
-            origin: "right",
+            origin: "top",
             easing: "ease-out",
             reset: false,
             viewFactor: 0.2,
@@ -104,7 +106,6 @@ const FirstScreenDesigners = () => {
             scale: 1,
         });
         
-        // הוספת אנימציה לכפתור CTA
         ScrollReveal().reveal(`.${styles.ctaButton}`, {
             duration: 1000,
             distance: "20px",
@@ -133,74 +134,35 @@ const FirstScreenDesigners = () => {
             />
             
             {/* Intro Header with Purple Background */}
-            <div className={`${styles.introHeader} ${styles.fadeInElement}`}>
+            <div className={styles.introHeader}>
                 <div className={styles.introText}>
-                    {/* <h3 className={styles.introTitle}>לאחר שליווה מאות עצמאיות ב+40 תחומים</h3> */}
                     <p className={styles.introDescription}>אם את מעצבת פנים או אדריכלית ונמאס לך לראות מתחרות צעירות ממך מקבלות פרוייקטים בדיגיטל בזמן שאת מתבססת רק על פניות מפה לאוזן - <strong> הדף הזה בשבילך </strong></p>
                 </div>
             </div>
             
             {/* Title */}
-            <div className={`${styles.title} ${styles.fadeInElement}`}>
+            <div className={styles.title}>
                 דף נחיתה שיעזור לך לסגור פרוייקטים מהדיגיטל <span className={styles.bold}>בכל חודש מחדש</span> ולהצטייר כמותג בתחום שלך
             </div>
             
-            {/* Hero Image with Parallax */}
-            <div className={`${styles.heroImageContainer} ${styles.fadeInElement}`}>
+            {/* Hero Image with Placeholder */}
+            <div className={styles.heroImageContainer}>
+                {/* Placeholder - אותה תמונה עם opacity 0 ששומרת על המקום */}
+                <img 
+                    src={daniel} 
+                    alt="" 
+                    className={styles.imagePlaceholder}
+                />
                 <img 
                     src={daniel} 
                     alt="דניאל רוזנבלט והלקוחות" 
-                    className={styles.heroImage}
+                    className={`${styles.heroImage} ${imageLoaded ? styles.imageVisible : ''}`}
                     style={{ transform: `translateY(${offset * 0.2}px)` }}
+                    onLoad={() => setImageLoaded(true)}
                 />
             </div>
-    <FormScreen/>
-
-
+            <FormScreen/>
         </div>
-       
-        {/* <div className={styles.benefitsWrapper}>
-                <div className={styles.benefitsContainer}>
-                    <div className={`${styles.benefitItem} ${styles.fadeInElement}`}>
-                        <div className={styles.benefitIconWrapper}>
-                            <Player 
-                                icon={price}
-                                size={48}
-                                ref={playerRef1} 
-                                size="100%" 
-                                loop={true}
-                                onComplete={handleComplete}
-                            />
-                        </div>
-                        <div className={styles.benefitText}>להתחיל לתמחר במחיר שאת רוצה לקבל</div>
-                    </div>
-                    <div className={`${styles.benefitItem} ${styles.fadeInElement}`}>
-                        <div className={styles.benefitIconWrapper}>
-                            <Player
-                                icon={talk}
-                                ref={playerRef2}
-                                size="100%" 
-                                loop={true}
-                                onComplete={handleComplete}
-                            />
-                        </div>
-                        <div className={styles.benefitText}>בלי לדבר כמו תוכי בשיחות מכירה</div>
-                    </div>
-                    <div className={`${styles.benefitItem} ${styles.fadeInElement}`}>
-                        <div className={styles.benefitIconWrapper}>
-                            <Player 
-                                icon={call}
-                                size={48}
-                                ref={playerRef3} 
-                                size="100%" 
-                                loop={true}
-                                onComplete={handleComplete}
-                            />
-                        </div>
-                        <div className={styles.benefitText}>שיזכרו אותך ויחכו לשיחה ממך</div>
-                    </div>
-                </div>      </div> */}
-      
     </>
 }
 
