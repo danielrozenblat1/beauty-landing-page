@@ -21,7 +21,9 @@ const ThirdScreen = () => {
         'xqOb0FGbeJo',
         'udpA5LMr-Xc',
         'iOev0zVeO0Y',
-        'hE5VR1w_8OE'
+        'hE5VR1w_8OE',
+        'UoWR9wm1NeU',
+        'C2RHk3Tbslw'
     ];
 
     const handleContactClick = () => {

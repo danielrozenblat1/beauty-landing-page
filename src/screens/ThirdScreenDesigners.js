@@ -11,7 +11,7 @@ import natali from "../images/נטלי שוורץ שואוקייס.png"
 const ThirdScreenDesigners = () => {
     const [showAllShowcases, setShowAllShowcases] = useState(false);
     
-    const shortsIds = [
+   const shortsIds = [
         'bT61COiNKGM',
         '31ehauP2cRE',
         'r84l5ZllT_o',
@@ -21,9 +21,10 @@ const ThirdScreenDesigners = () => {
         'xqOb0FGbeJo',
         'udpA5LMr-Xc',
         'iOev0zVeO0Y',
-        'hE5VR1w_8OE'
+        'hE5VR1w_8OE',
+        'UoWR9wm1NeU',
+        'C2RHk3Tbslw'
     ];
-
     const handleContactClick = () => {
         const formElement = document.getElementById('טופס');
         if (formElement) {
