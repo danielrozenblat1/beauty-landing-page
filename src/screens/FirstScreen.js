@@ -121,13 +121,13 @@ const FirstScreen = () => {
             <div className={styles.introHeader}>
                 <div className={styles.introText}>
                     <p className={styles.introDescription}>
-                        אם את מוצאת את עצמך שוקלת להוריד מחירים רק כדי שמישהי סוף סוף תגיד כן, תעצרי. הדף הזה בשבילך
+                                            נמאס לך לקבל פניות שקשורות רק למחיר ולהרגיש שהתדמית שלך ברשת עדיין לא משקפת את המקצועיות והשירות שלך?
                     </p>
                 </div>
             </div>
 
             <div className={styles.title}>
-                דף נחיתה שהופך אותך מ"עוד אחת בתחום"
+                הגיע הזמן לדף נחיתה שהופך אותך מ"עוד אופציה"
                 <span className={styles.bold}>למותג עם יומן מלא</span>
             </div>
 

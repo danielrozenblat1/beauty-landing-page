@@ -121,14 +121,14 @@ const FirstScreenDesigners = () => {
             <div className={styles.introHeader}>
                 <div className={styles.introText}>
                     <p className={styles.introDescription}>
-                        אם את מעצבת פנים או אדריכלית ונמאס לך להיות תלויה רק בפניות מפה לאוזן - תעצרי, הדף הזה בשבילך
+                           נמאס לך לקבל פניות שקשורות רק למחיר ולהרגיש שהתדמית שלך ברשת עדיין לא משקפת את המקצועיות והשירות שלך?
                     </p>
                 </div>
             </div>
 
             <div className={styles.title}>
-                דף נחיתה שיעזור לך לסגור פרוייקטים מהדיגיטל בצורה יציבה
-                <span className={styles.bold}>בכל חודש מחדש</span>
+                הגיע הזמן לדף נחיתה שמשדר יוקרה ושעוזר לך לסגור פרוייקטים מהדיגיטל
+                <span className={styles.bold}>בצורה יציבה ובמחיר מלא</span>
             
             </div>
 

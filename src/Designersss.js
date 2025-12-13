@@ -17,12 +17,12 @@ import AboutMeDesigners from './meee/MeDesigners';
 import SixthScreenDesigners from './screens/SixthScreenDesigners';
 import FirstScreenHook from './screens/FirstScreenHook';
 
-const Designers=()=>{
+const Designersss=()=>{
 
 return <>
 <NavBarNew/>
-{/* <FirstScreenHook/> */}
-  <FirstScreenDesigners/>
+<FirstScreenHook/>
+  {/* <FirstScreenDesigners/> */}
   <ThirdScreenDesigners/>
   {/* <SecondScreen/> */}
   <ForthScreenDesigners/>
@@ -36,4 +36,4 @@ return <>
 </>
 
 }
-export default Designers
+export default Designersss

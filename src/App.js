@@ -9,6 +9,7 @@ import Thanks from './thank/Thanks';
 
 import MainWrapper from './mainBeauty/MainWrapper';
 import Designers from './Designers';
+import Designersss from './Designersss';
 function App() {
 
   
@@ -16,6 +17,8 @@ function App() {
  <Router>
     <Routes>
     <Route path="/" index element={<MainWrapper/>}/>
+      
+    <Route path="/מעצבים נוסף"  element={<Designersss/>}/>
     <Route path="/מעצבים"  element={<Designers/>}/>
     <Route path="/תקנון"  element={<Takanon/>}/>
 
