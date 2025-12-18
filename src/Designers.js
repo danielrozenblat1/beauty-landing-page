@@ -23,9 +23,10 @@ return <>
 <NavBarNew/>
 {/* <FirstScreenHook/> */}
   <FirstScreenDesigners/>
+    <ForthScreenDesigners/>
   <ThirdScreenDesigners/>
   {/* <SecondScreen/> */}
-  <ForthScreenDesigners/>
+
     <AboutMeDesigners/>
     <SixthScreenDesigners/>
 <SecondScreen/>
