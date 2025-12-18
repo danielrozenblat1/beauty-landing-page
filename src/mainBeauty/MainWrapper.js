@@ -16,9 +16,10 @@ const MainWrapper=()=>{
 return <>
 <NavBarNew/>
   <FirstScreen/>
+    <ForthScreen/>
   <ThirdScreen/>
   {/* <SecondScreen/> */}
-  <ForthScreen/>
+
     <AboutMe/>
     <SixthScreen/>
 <SecondScreen/>

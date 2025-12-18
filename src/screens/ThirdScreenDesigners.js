@@ -114,7 +114,7 @@ const ThirdScreenDesigners = () => {
             )} */}
 
             <div className={`${styles.title} ${styles.fadeInElement}`}>
-                <span className={styles.bold}>שנייה לפני שנדבר.. קצת ממה שיש ללקוחות שלי לומר</span>
+                <span className={styles.bold}>קצת ממה שיש ללקוחות שלי לומר</span>
             </div>
             
             <YouTubeShortsCarousel shortsIds={shortsIds}/>
